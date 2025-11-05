@@ -1,0 +1,26 @@
+{
+    "Role": {
+        "Path": "/service-role/",
+        "RoleName": "SummarizeAndResumeHandler-role-ogn1ngtx",
+        "RoleId": "AROA6GBMBMFFNX4HUJ5DG",
+        "Arn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/SummarizeAndResumeHandler-role-ogn1ngtx",
+        "CreateDate": "2025-10-07T12:45:13+00:00",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "MaxSessionDuration": 3600,
+        "RoleLastUsed": {
+            "LastUsedDate": "2025-10-29T11:32:18+00:00",
+            "Region": "us-west-2"
+        }
+    }
+}

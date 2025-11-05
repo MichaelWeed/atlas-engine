@@ -1,0 +1,180 @@
+{
+    "ContactFlowSummaryList": [
+        {
+            "Id": "ee6b5ccb-e48d-4f84-b14e-141cc4c4fe87",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/ee6b5ccb-e48d-4f84-b14e-141cc4c4fe87",
+            "Name": "Default agent hold",
+            "ContactFlowType": "AGENT_HOLD",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "782c8274-6735-475b-8f01-386e56b70f08",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/782c8274-6735-475b-8f01-386e56b70f08",
+            "Name": "Default agent transfer",
+            "ContactFlowType": "AGENT_TRANSFER",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "93d3008c-bad4-4ffa-98fa-d07aa117b26e",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/93d3008c-bad4-4ffa-98fa-d07aa117b26e",
+            "Name": "Default agent whisper",
+            "ContactFlowType": "AGENT_WHISPER",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "2bc2741c-69db-45af-baa3-7ba41c7b8a62",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/2bc2741c-69db-45af-baa3-7ba41c7b8a62",
+            "Name": "Sample Lambda integration",
+            "ContactFlowType": "CONTACT_FLOW",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "392aac0c-d0ba-4d89-b9df-4c7848c7fc79",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/392aac0c-d0ba-4d89-b9df-4c7848c7fc79",
+            "Name": "AtlasEngineBot",
+            "ContactFlowType": "CONTACT_FLOW",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "SAVED"
+        },
+        {
+            "Id": "b2a81da6-615b-4751-9638-f895411a7f97",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/b2a81da6-615b-4751-9638-f895411a7f97",
+            "Name": "Sample note for screenpop",
+            "ContactFlowType": "CONTACT_FLOW",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "2473b3ca-3ee3-4ff8-bdd8-9eb5ca92836c",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/2473b3ca-3ee3-4ff8-bdd8-9eb5ca92836c",
+            "Name": "Sample queue customer",
+            "ContactFlowType": "CONTACT_FLOW",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "f7ee07a4-1f24-4151-9574-9abb67be0a5b",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/f7ee07a4-1f24-4151-9574-9abb67be0a5b",
+            "Name": "Sample disconnect flow",
+            "ContactFlowType": "CONTACT_FLOW",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "baed47b7-99d7-40c2-996c-3c13f4ee14a1",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/baed47b7-99d7-40c2-996c-3c13f4ee14a1",
+            "Name": "Sample recording behavior",
+            "ContactFlowType": "CONTACT_FLOW",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "4e868bd0-fd39-4961-8670-e77388ef689e",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/4e868bd0-fd39-4961-8670-e77388ef689e",
+            "Name": "Sample queue configurations flow",
+            "ContactFlowType": "CONTACT_FLOW",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "057d8f72-056d-4558-a6a3-34fe965eef95",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/057d8f72-056d-4558-a6a3-34fe965eef95",
+            "Name": "Sample AB test",
+            "ContactFlowType": "CONTACT_FLOW",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "b1bc7649-2fda-41ad-b28d-cde3a368cd31",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/b1bc7649-2fda-41ad-b28d-cde3a368cd31",
+            "Name": "AtlasEngineOutboundFlow",
+            "ContactFlowType": "CONTACT_FLOW",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "8a7a081c-c5d4-4dc5-b559-8283ec8bbd23",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/8a7a081c-c5d4-4dc5-b559-8283ec8bbd23",
+            "Name": "Sample secure input with no agent",
+            "ContactFlowType": "CONTACT_FLOW",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "3bbb8b8f-0bfe-45c6-afb1-d7c6f2a50539",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/3bbb8b8f-0bfe-45c6-afb1-d7c6f2a50539",
+            "Name": "DebugFlow",
+            "ContactFlowType": "CONTACT_FLOW",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "502e734d-5105-4a4e-a227-36e129b98eb9",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/502e734d-5105-4a4e-a227-36e129b98eb9",
+            "Name": "Sample inbound flow (first contact experience)",
+            "ContactFlowType": "CONTACT_FLOW",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "139b731f-62a5-4fcc-8eba-c3ac88afc913",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/139b731f-62a5-4fcc-8eba-c3ac88afc913",
+            "Name": "Default customer hold",
+            "ContactFlowType": "CUSTOMER_HOLD",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "69a6773d-8614-43aa-a9d4-772c9706f5d3",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/69a6773d-8614-43aa-a9d4-772c9706f5d3",
+            "Name": "Sample interruptible queue flow with callback",
+            "ContactFlowType": "CUSTOMER_QUEUE",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "f7dc1e8f-a7c4-4471-a9b7-07623f6eab57",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/f7dc1e8f-a7c4-4471-a9b7-07623f6eab57",
+            "Name": "Default customer queue",
+            "ContactFlowType": "CUSTOMER_QUEUE",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "a2338a44-794c-49b8-971d-367b7155b473",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/a2338a44-794c-49b8-971d-367b7155b473",
+            "Name": "Default customer whisper",
+            "ContactFlowType": "CUSTOMER_WHISPER",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "6f435d0c-e84c-457c-a8b4-4481599789ad",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/6f435d0c-e84c-457c-a8b4-4481599789ad",
+            "Name": "Default outbound",
+            "ContactFlowType": "OUTBOUND_WHISPER",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "f3b0a672-7766-477a-8449-30368f5186e7",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/f3b0a672-7766-477a-8449-30368f5186e7",
+            "Name": "Sample secure input with agent",
+            "ContactFlowType": "QUEUE_TRANSFER",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        },
+        {
+            "Id": "3ebf98b9-826b-4370-8651-4434c08a07e1",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/contact-flow/3ebf98b9-826b-4370-8651-4434c08a07e1",
+            "Name": "Default queue transfer",
+            "ContactFlowType": "QUEUE_TRANSFER",
+            "ContactFlowState": "ACTIVE",
+            "ContactFlowStatus": "PUBLISHED"
+        }
+    ]
+}

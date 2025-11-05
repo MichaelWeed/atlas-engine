@@ -1,0 +1,15 @@
+{
+    "Policy": {
+        "PolicyName": "AtlasEngineLoggingPolicy",
+        "PolicyId": "ANPA6GBMBMFFNQ3NZNCMR",
+        "Arn": "arn:aws:iam::<AWS_ACCOUNT_ID>:policy/AtlasEngineLoggingPolicy",
+        "Path": "/",
+        "DefaultVersionId": "v4",
+        "AttachmentCount": 8,
+        "PermissionsBoundaryUsageCount": 0,
+        "IsAttachable": true,
+        "CreateDate": "2025-10-29T08:09:08+00:00",
+        "UpdateDate": "2025-10-29T09:47:49+00:00",
+        "Tags": []
+    }
+}

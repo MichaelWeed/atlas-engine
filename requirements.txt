@@ -1,0 +1,9 @@
+# Lambda Layer: python-libraries
+requests==2.31.0
+phonenumbers==8.13.26
+wrapt==1.16.0
+
+# Lambda Layer: salesforce-libraries
+simple-salesforce==1.12.5
+PyJWT==2.8.0
+cryptography==41.0.7

@@ -1,0 +1,26 @@
+{
+    "Role": {
+        "Path": "/service-role/",
+        "RoleName": "InvokeOutboundCallHandler-role-p7ou5zno",
+        "RoleId": "AROA6GBMBMFFJJZKSSU7I",
+        "Arn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/InvokeOutboundCallHandler-role-p7ou5zno",
+        "CreateDate": "2025-10-11T04:31:11+00:00",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "MaxSessionDuration": 3600,
+        "RoleLastUsed": {
+            "LastUsedDate": "2025-10-29T11:31:08+00:00",
+            "Region": "us-west-2"
+        }
+    }
+}

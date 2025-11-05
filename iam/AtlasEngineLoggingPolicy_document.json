@@ -1,0 +1,38 @@
+{
+    "PolicyVersion": {
+        "Document": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Action": [
+                        "logs:CreateLogGroup",
+                        "logs:CreateLogStream",
+                        "logs:PutLogEvents"
+                    ],
+                    "Resource": [
+                        "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/lambda/*:*",
+                        "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/vendedlogs/states/AtlasEngineWorkflow-Logs:*"
+                    ]
+                },
+                {
+                    "Effect": "Allow",
+                    "Action": [
+                        "logs:CreateLogDelivery",
+                        "logs:GetLogDelivery",
+                        "logs:UpdateLogDelivery",
+                        "logs:DeleteLogDelivery",
+                        "logs:ListLogDeliveries",
+                        "logs:PutResourcePolicy",
+                        "logs:DescribeResourcePolicies",
+                        "logs:DescribeLogGroups"
+                    ],
+                    "Resource": "*"
+                }
+            ]
+        },
+        "VersionId": "v4",
+        "IsDefaultVersion": true,
+        "CreateDate": "2025-10-29T09:47:49+00:00"
+    }
+}

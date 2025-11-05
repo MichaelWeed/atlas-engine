@@ -1,0 +1,13 @@
+{
+    "logGroups": [
+        {
+            "logGroupName": "/aws/lambda/LexFulfillmentHandler",
+            "creationTime": 1758608428473,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/lambda/LexFulfillmentHandler:*",
+            "storedBytes": 633149,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/lambda/LexFulfillmentHandler"
+        }
+    ]
+}

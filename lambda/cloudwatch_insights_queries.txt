@@ -1,0 +1,152 @@
+# CloudWatch Logs Insights Queries for Atlas Engine Profiling
+
+## Query 1: Find Slowest Operations (All Functions)
+fields @timestamp, function_name, metric, value_sec
+| filter event_type = "TIMING"
+| sort value_sec desc
+| limit 50
+
+## Query 2: Find Slowest Total Function Durations
+fields @timestamp, function_name, total_function_duration, message
+| filter event_type = "END"
+| sort total_function_duration desc
+| limit 50
+
+## Query 3: Bedrock Call Performance Analysis
+fields @timestamp, function_name, value_sec
+| filter metric = "BedrockCallDuration"
+| stats avg(value_sec) as avg_duration, max(value_sec) as max_duration, min(value_sec) as min_duration, count(*) as call_count by function_name
+
+## Query 4: Connect Call Performance
+fields @timestamp, value_sec
+| filter metric = "ConnectCallDuration"
+| stats avg(value_sec) as avg_duration, max(value_sec) as max_duration, min(value_sec) as min_duration, count(*) as call_count
+
+## Query 5: Salesforce API Performance
+fields @timestamp, metric, value_sec
+| filter metric in ["SalesforceAuthDuration", "SalesforceUpdateDuration"]
+| stats avg(value_sec) as avg_duration, max(value_sec) as max_duration by metric
+
+## Query 6: DynamoDB Performance
+fields @timestamp, metric, value_sec
+| filter metric in ["DynamoDBPutDuration", "DynamoDBUpdateDuration"]
+| stats avg(value_sec) as avg_duration, max(value_sec) as max_duration by metric
+
+## Query 7: Function Execution Timeline
+fields @timestamp, function_name, event_type, total_function_duration, metric, value_sec
+| filter event_type in ["START", "TIMING", "END"]
+| sort @timestamp asc
+
+## Query 8: Error Analysis
+fields @timestamp, function_name, error, total_function_duration
+| filter event_type = "ERROR"
+| sort @timestamp desc
+
+## Query 9: LexFulfillmentHandler Deep Dive
+fields @timestamp, event_type, metric, value_sec, total_function_duration
+| filter function_name = "LFH"
+| sort @timestamp asc
+
+## Query 10: GenerateDynamicScenarioHandler Deep Dive
+fields @timestamp, event_type, metric, value_sec, total_function_duration
+| filter function_name = "GDSH"
+| sort @timestamp asc
+
+## Query 11: InvokeOutboundCallHandler Deep Dive
+fields @timestamp, event_type, metric, value_sec, total_function_duration
+| filter function_name = "IOCH"
+| sort @timestamp asc
+
+## Query 12: UpdateLeadHandler Deep Dive
+fields @timestamp, event_type, metric, value_sec, total_function_duration
+| filter function_name = "ULH"
+| sort @timestamp asc
+
+## Query 13: Identify Operations Over 5 Seconds
+fields @timestamp, function_name, metric, value_sec
+| filter event_type = "TIMING" and value_sec > 5
+| sort value_sec desc
+
+## Query 14: Identify Operations Over 9 Seconds (Likely Bottleneck)
+fields @timestamp, function_name, metric, value_sec
+| filter event_type = "TIMING" and value_sec > 9
+| sort value_sec desc
+
+## Query 15: Function Performance Comparison
+fields function_name, total_function_duration
+| filter event_type = "END"
+| stats avg(total_function_duration) as avg_duration, max(total_function_duration) as max_duration, count(*) as execution_count by function_name
+
+## Query 16: Hourly Performance Trends
+fields @timestamp, function_name, total_function_duration
+| filter event_type = "END"
+| stats avg(total_function_duration) as avg_duration by bin(1h), function_name
+
+## Query 17: P50, P90, P99 Latencies by Function
+fields function_name, total_function_duration
+| filter event_type = "END"
+| stats pct(total_function_duration, 50) as p50, pct(total_function_duration, 90) as p90, pct(total_function_duration, 99) as p99 by function_name
+
+## Query 18: Bedrock Call Latency Distribution
+fields value_sec
+| filter metric = "BedrockCallDuration"
+| stats count(*) as call_count by bin(value_sec, 1)
+| sort bin asc
+
+## Query 19: Full Execution Trace (Single Request)
+fields @timestamp, function_name, event_type, metric, value_sec, message
+| filter @requestId = "YOUR_REQUEST_ID_HERE"
+| sort @timestamp asc
+
+## Query 20: Success vs Error Rate
+fields event_type
+| stats count(*) as count by event_type
+
+---
+
+## How to Use These Queries
+
+1. Go to CloudWatch Logs Insights: https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#logsV2:logs-insights
+
+2. Select log groups:
+   - /aws/lambda/LexFulfillmentHandler
+   - /aws/lambda/GenerateDynamicScenarioHandler
+   - /aws/lambda/InvokeOutboundCallHandler
+   - /aws/lambda/UpdateLeadHandler
+
+3. Paste one of the queries above
+
+4. Set time range (e.g., last 1 hour)
+
+5. Click "Run query"
+
+---
+
+## Pro Tips
+
+- Use Query 1 first to identify the slowest operation
+- Use Query 14 to find operations over 9 seconds (your bottleneck)
+- Use Query 17 to understand latency distribution (P50/P90/P99)
+- Use function-specific queries (9-12) for deep dives
+- Save frequently used queries in CloudWatch for quick access
+
+---
+
+## Example Output Interpretation
+
+### Query 1 Result:
+| @timestamp | function_name | metric | value_sec |
+|------------|---------------|--------|-----------|
+| 2025-01-15 10:23:45 | GDSH | BedrockCallDuration | 9.234 |
+| 2025-01-15 10:23:42 | IOCH | ConnectCallDuration | 1.456 |
+| 2025-01-15 10:23:40 | LFH | BedrockCallDuration | 0.678 |
+
+**Interpretation:** The bottleneck is the Bedrock call in GenerateDynamicScenarioHandler (9.234 seconds).
+
+### Query 3 Result:
+| function_name | avg_duration | max_duration | min_duration | call_count |
+|---------------|--------------|--------------|--------------|------------|
+| GDSH | 8.945 | 10.234 | 7.123 | 45 |
+| LFH | 0.567 | 1.234 | 0.345 | 120 |
+
+**Interpretation:** GDSH Bedrock calls consistently take 8-10 seconds, while LFH Bedrock calls are fast (< 1 second). This suggests the issue is specific to GDSH's prompt or model configuration.

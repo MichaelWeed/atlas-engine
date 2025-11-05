@@ -1,0 +1,195 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Atlas Engine Quick Start - One-Click Deployment (qs-1234567890)'
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      - Label:
+          default: Environment Configuration
+        Parameters: [Environment, ProjectName]
+      - Label:
+          default: Salesforce Integration
+        Parameters: [SalesforceUsername, SalesforceClientId, SalesforcePrivateKey]
+      - Label:
+          default: Amazon Connect (Optional)
+        Parameters: [ConnectInstanceId, SourcePhoneNumber]
+      - Label:
+          default: Advanced Configuration
+        Parameters: [BedrockModelId]
+    ParameterLabels:
+      Environment:
+        default: Deployment Environment
+      SalesforceUsername:
+        default: Salesforce Username
+      SalesforceClientId:
+        default: Salesforce Connected App Client ID
+      SalesforcePrivateKey:
+        default: Salesforce Private Key (Base64)
+
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+    AllowedValues: [dev, staging, prod]
+    Description: Environment name
+  
+  ProjectName:
+    Type: String
+    Default: AtlasEngine
+    Description: Project name for resource naming
+  
+  SalesforceUsername:
+    Type: String
+    Description: Salesforce user email for JWT authentication
+    NoEcho: true
+  
+  SalesforceClientId:
+    Type: String
+    Description: Connected App Consumer Key
+    NoEcho: true
+  
+  SalesforcePrivateKey:
+    Type: String
+    Description: Base64-encoded private key for JWT
+    NoEcho: true
+  
+  BedrockModelId:
+    Type: String
+    Default: anthropic.claude-3-5-sonnet-20240620-v1:0
+    Description: Bedrock model ID
+  
+  ConnectInstanceId:
+    Type: String
+    Default: ''
+    Description: (Optional) Amazon Connect instance ID
+  
+  SourcePhoneNumber:
+    Type: String
+    Default: ''
+    Description: (Optional) Source phone number for outbound calls
+
+Conditions:
+  HasConnectInstance: !Not [!Equals [!Ref ConnectInstanceId, '']]
+
+Resources:
+  SalesforceSecret:
+    Type: AWS::SecretsManager::Secret
+    Properties:
+      Name: !Sub ${ProjectName}/SalesforceCreds-${Environment}
+      SecretString: !Sub |
+        {
+          "username": "${SalesforceUsername}",
+          "client_id": "${SalesforceClientId}",
+          "private_key": "${SalesforcePrivateKey}"
+        }
+      Tags:
+        - Key: Project
+          Value: !Ref ProjectName
+        - Key: Environment
+          Value: !Ref Environment
+
+  InteractionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub ${ProjectName}Interactions-${Environment}
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: PK
+          AttributeType: S
+        - AttributeName: SK
+          AttributeType: S
+      KeySchema:
+        - AttributeName: PK
+          KeyType: HASH
+        - AttributeName: SK
+          KeyType: RANGE
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+      Tags:
+        - Key: Project
+          Value: !Ref ProjectName
+
+  TaskTokensTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub ${ProjectName}TaskTokens-${Environment}
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: PK
+          AttributeType: S
+        - AttributeName: SK
+          AttributeType: S
+      KeySchema:
+        - AttributeName: PK
+          KeyType: HASH
+        - AttributeName: SK
+          KeyType: RANGE
+      TimeToLiveSpecification:
+        AttributeName: ExpirationTime
+        Enabled: true
+      Tags:
+        - Key: Project
+          Value: !Ref ProjectName
+
+  SalesTeamTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Sub ${ProjectName}-SalesTeamNotifications-${Environment}
+      Tags:
+        - Key: Project
+          Value: !Ref ProjectName
+
+  DeploymentBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub ${ProjectName}-deployment-${AWS::AccountId}-${Environment}
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        - Key: Project
+          Value: !Ref ProjectName
+
+Outputs:
+  InteractionsTableName:
+    Description: DynamoDB table for interactions
+    Value: !Ref InteractionsTable
+    Export:
+      Name: !Sub ${AWS::StackName}-InteractionsTable
+  
+  TaskTokensTableName:
+    Description: DynamoDB table for task tokens
+    Value: !Ref TaskTokensTable
+    Export:
+      Name: !Sub ${AWS::StackName}-TaskTokensTable
+  
+  SalesforceSecretArn:
+    Description: Salesforce credentials secret ARN
+    Value: !Ref SalesforceSecret
+    Export:
+      Name: !Sub ${AWS::StackName}-SalesforceSecret
+  
+  SalesTeamTopicArn:
+    Description: SNS topic for sales team notifications
+    Value: !Ref SalesTeamTopic
+    Export:
+      Name: !Sub ${AWS::StackName}-SalesTeamTopic
+  
+  DeploymentBucketName:
+    Description: S3 bucket for deployment artifacts
+    Value: !Ref DeploymentBucket
+    Export:
+      Name: !Sub ${AWS::StackName}-DeploymentBucket
+  
+  NextSteps:
+    Description: Next steps after infrastructure deployment
+    Value: !Sub |
+      1. Deploy Lambda functions using SAM: sam build && sam deploy
+      2. Configure Amazon Lex bot with fulfillment Lambda
+      3. Set up Amazon Connect instance (if using voice)
+      4. Enable Bedrock model access in IAM
+      5. Test the workflow with sample data

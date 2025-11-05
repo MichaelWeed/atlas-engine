@@ -1,0 +1,13 @@
+{
+    "logGroups": [
+        {
+            "logGroupName": "/aws/lambda/InvokeOutboundCallHandler",
+            "creationTime": 1760158503382,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/lambda/InvokeOutboundCallHandler:*",
+            "storedBytes": 436402,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/lambda/InvokeOutboundCallHandler"
+        }
+    ]
+}

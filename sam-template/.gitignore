@@ -1,0 +1,41 @@
+# SAM
+.aws-sam/
+samconfig.toml.bak
+packaged.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+.pytest_cache/
+
+# Lambda Layers
+layers/*/python/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+
+# Secrets
+*.pem
+*.key
+secrets.json
+salesforce-creds.json
+
+# Logs
+*.log
+
+# Build
+*.zip
+build/
+dist/

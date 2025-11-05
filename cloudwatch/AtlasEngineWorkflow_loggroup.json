@@ -1,0 +1,13 @@
+{
+    "logGroups": [
+        {
+            "logGroupName": "/aws/vendedlogs/states/AtlasEngineWorkflow-Logs",
+            "creationTime": 1758695227833,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/vendedlogs/states/AtlasEngineWorkflow-Logs:*",
+            "storedBytes": 322755,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/vendedlogs/states/AtlasEngineWorkflow-Logs"
+        }
+    ]
+}

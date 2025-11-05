@@ -1,0 +1,41 @@
+{
+    "Table": {
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "ContactId",
+                "AttributeType": "S"
+            }
+        ],
+        "TableName": "AtlasEngineTaskTokens",
+        "KeySchema": [
+            {
+                "AttributeName": "ContactId",
+                "KeyType": "HASH"
+            }
+        ],
+        "TableStatus": "ACTIVE",
+        "CreationDateTime": "2025-10-07T22:31:57.107000-07:00",
+        "ProvisionedThroughput": {
+            "NumberOfDecreasesToday": 0,
+            "ReadCapacityUnits": 0,
+            "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 8856,
+        "ItemCount": 12,
+        "TableArn": "arn:aws:dynamodb:us-west-2:<AWS_ACCOUNT_ID>:table/AtlasEngineTaskTokens",
+        "TableId": "7c2ee062-29fa-403b-afa6-9050330f23a8",
+        "BillingModeSummary": {
+            "BillingMode": "PAY_PER_REQUEST",
+            "LastUpdateToPayPerRequestDateTime": "2025-10-07T22:31:57.107000-07:00"
+        },
+        "TableClassSummary": {
+            "TableClass": "STANDARD"
+        },
+        "DeletionProtectionEnabled": false,
+        "WarmThroughput": {
+            "ReadUnitsPerSecond": 12000,
+            "WriteUnitsPerSecond": 4000,
+            "Status": "ACTIVE"
+        }
+    }
+}

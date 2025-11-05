@@ -1,0 +1,323 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: |
+  Atlas Engine - AI-Powered Sales Acceleration Platform
+  Deploys 8 Lambda functions, 2 DynamoDB tables, Step Functions workflow, and integrations with Bedrock, Lex, Connect, and Salesforce.
+  Cost: ~$24/month (dev), ~$214/month (staging), ~$1,138/month (prod for 50K conversations).
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      - Label:
+          default: Environment Configuration
+        Parameters:
+          - Environment
+          - ProjectName
+      - Label:
+          default: Salesforce Integration
+        Parameters:
+          - SalesforceSecretName
+      - Label:
+          default: AI Configuration
+        Parameters:
+          - BedrockModelId
+      - Label:
+          default: Voice Integration (Optional)
+        Parameters:
+          - ConnectInstanceId
+          - SourcePhoneNumber
+    ParameterLabels:
+      Environment:
+        default: Deployment Environment
+      ProjectName:
+        default: Project Name
+      SalesforceSecretName:
+        default: Salesforce Secret Name
+      BedrockModelId:
+        default: Bedrock Model ID
+      ConnectInstanceId:
+        default: Connect Instance ID
+      SourcePhoneNumber:
+        default: Source Phone Number
+
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+    AllowedValues: [dev, staging, prod]
+    Description: Deployment environment (dev=$24/mo, staging=$214/mo, prod=$1138/mo)
+  
+  ProjectName:
+    Type: String
+    Default: AtlasEngine
+    Description: Project name used for resource naming (no spaces)
+    AllowedPattern: ^[a-zA-Z][a-zA-Z0-9]*$
+    ConstraintDescription: Must start with a letter and contain only alphanumeric characters
+  
+  SalesforceSecretName:
+    Type: String
+    Default: AtlasEngine/SalesforceCreds
+    Description: AWS Secrets Manager secret name containing Salesforce credentials (must exist before deployment)
+  
+  BedrockModelId:
+    Type: String
+    Default: anthropic.claude-3-5-sonnet-20240620-v1:0
+    Description: Amazon Bedrock model ID (ensure model access is enabled in Bedrock console)
+    AllowedValues:
+      - anthropic.claude-3-5-sonnet-20240620-v1:0
+      - anthropic.claude-3-haiku-20240307-v1:0
+      - anthropic.claude-3-opus-20240229-v1:0
+  
+  ConnectInstanceId:
+    Type: String
+    Default: ''
+    Description: (Optional) Amazon Connect instance ID for outbound voice calls - leave empty to skip voice features
+  
+  SourcePhoneNumber:
+    Type: String
+    Default: ''
+    Description: (Optional) Source phone number for outbound calls in E.164 format (e.g., +12065551234) - required if ConnectInstanceId is provided
+
+Conditions:
+  IsProduction: !Equals [!Ref Environment, prod]
+  HasConnectInstance: !Not [!Equals [!Ref ConnectInstanceId, '']]
+
+Globals:
+  Function:
+    Runtime: python3.13
+    Timeout: 30
+    MemorySize: 512
+    Environment:
+      Variables:
+        ENVIRONMENT: !Ref Environment
+        PROJECT_NAME: !Ref ProjectName
+    Tags:
+      Project: !Ref ProjectName
+      Environment: !Ref Environment
+
+Resources:
+  # Lambda Layers
+  PythonLibrariesLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: !Sub ${ProjectName}-PythonLibraries-${Environment}
+      ContentUri: ../layers/python-libraries/
+      CompatibleRuntimes: [python3.13]
+      RetentionPolicy: Retain
+
+  SalesforceLibrariesLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: !Sub ${ProjectName}-SalesforceLibraries-${Environment}
+      ContentUri: ../layers/salesforce-libraries/
+      CompatibleRuntimes: [python3.13]
+      RetentionPolicy: Retain
+
+  # DynamoDB Tables
+  InteractionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub ${ProjectName}Interactions-${Environment}
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: PK
+          AttributeType: S
+        - AttributeName: SK
+          AttributeType: S
+      KeySchema:
+        - AttributeName: PK
+          KeyType: HASH
+        - AttributeName: SK
+          KeyType: RANGE
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+
+  TaskTokensTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub ${ProjectName}TaskTokens-${Environment}
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: PK
+          AttributeType: S
+        - AttributeName: SK
+          AttributeType: S
+      KeySchema:
+        - AttributeName: PK
+          KeyType: HASH
+        - AttributeName: SK
+          KeyType: RANGE
+      TimeToLiveSpecification:
+        AttributeName: ExpirationTime
+        Enabled: true
+
+  # SNS Topic
+  SalesTeamTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Sub ${ProjectName}-SalesTeamNotifications-${Environment}
+
+  # Lambda Functions
+  CreateLeadHandler:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${ProjectName}-CreateLeadHandler-${Environment}
+      CodeUri: ../lambda/CreateLeadHandler_code/
+      Handler: lambda_function.lambda_handler
+      MemorySize: 128
+      Timeout: 15
+      Layers:
+        - !Ref SalesforceLibrariesLayer
+      Environment:
+        Variables:
+          SALESFORCE_SECRET_ARN: !Sub arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:${SalesforceSecretName}-*
+          INTERACTIONS_DYNAMODB_TABLE: !Ref InteractionsTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref InteractionsTable
+        - Statement:
+            - Effect: Allow
+              Action: secretsmanager:GetSecretValue
+              Resource: !Sub arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:${SalesforceSecretName}-*
+
+  GenerateDynamicScenarioHandler:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${ProjectName}-GenerateDynamicScenarioHandler-${Environment}
+      CodeUri: ../lambda/GenerateDynamicScenarioHandler_code/
+      Handler: lambda_function.lambda_handler
+      Environment:
+        Variables:
+          MODEL_ID: !Ref BedrockModelId
+          INTERACTIONS_DYNAMODB_TABLE: !Ref InteractionsTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref InteractionsTable
+        - Statement:
+            - Effect: Allow
+              Action: bedrock:InvokeModel
+              Resource: !Sub arn:aws:bedrock:${AWS::Region}::foundation-model/${BedrockModelId}
+
+  InvokeOutboundCallHandler:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${ProjectName}-InvokeOutboundCallHandler-${Environment}
+      CodeUri: ../lambda/InvokeOutboundCallHandler_code/
+      Handler: lambda_function.lambda_handler
+      Timeout: 60
+      Environment:
+        Variables:
+          CONNECT_INSTANCE_ID: !Ref ConnectInstanceId
+          SOURCE_PHONE_NUMBER: !Ref SourcePhoneNumber
+          INTERACTIONS_DYNAMODB_TABLE: !Ref InteractionsTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref InteractionsTable
+        - Statement:
+            - Effect: Allow
+              Action: connect:StartOutboundVoiceContact
+              Resource: !If [HasConnectInstance, !Sub 'arn:aws:connect:${AWS::Region}:${AWS::AccountId}:instance/${ConnectInstanceId}/*', '*']
+            - Effect: Allow
+              Action: [states:SendTaskSuccess, states:SendTaskFailure]
+              Resource: !GetAtt AtlasEngineWorkflow.Arn
+
+  LexFulfillmentHandler:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${ProjectName}-LexFulfillmentHandler-${Environment}
+      CodeUri: ../lambda/LexFulfillmentHandler_code/
+      Handler: lambda_function.lambda_handler
+      MemorySize: 1500
+      Timeout: 300
+      Layers:
+        - !Ref PythonLibrariesLayer
+        - !Ref SalesforceLibrariesLayer
+      Environment:
+        Variables:
+          ANTHROPIC_MODEL_ID: !Ref BedrockModelId
+          STATE_MACHINE_ARN: !GetAtt AtlasEngineWorkflow.Arn
+          INTERACTIONS_DYNAMODB_TABLE: !Ref InteractionsTable
+          SALESFORCE_SECRET_ARN: !Sub arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:${SalesforceSecretName}-*
+          SALES_TEAM_TOPIC_ARN: !Ref SalesTeamTopic
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref InteractionsTable
+        - SNSPublishMessagePolicy:
+            TopicName: !GetAtt SalesTeamTopic.TopicName
+        - Statement:
+            - Effect: Allow
+              Action: states:StartExecution
+              Resource: !GetAtt AtlasEngineWorkflow.Arn
+            - Effect: Allow
+              Action: bedrock:InvokeModel
+              Resource: !Sub arn:aws:bedrock:${AWS::Region}::foundation-model/${BedrockModelId}
+            - Effect: Allow
+              Action: secretsmanager:GetSecretValue
+              Resource: !Sub arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:${SalesforceSecretName}-*
+
+  UpdateLeadHandler:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${ProjectName}-UpdateLeadHandler-${Environment}
+      CodeUri: ../lambda/UpdateLeadHandler_code/
+      Handler: lambda_function.lambda_handler
+      Layers:
+        - !Ref SalesforceLibrariesLayer
+      Environment:
+        Variables:
+          SALESFORCE_SECRET_ARN: !Sub arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:${SalesforceSecretName}-*
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: secretsmanager:GetSecretValue
+              Resource: !Sub arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:${SalesforceSecretName}-*
+
+  # Step Functions
+  AtlasEngineWorkflow:
+    Type: AWS::Serverless::StateMachine
+    Properties:
+      Name: !Sub ${ProjectName}-Workflow-${Environment}
+      Type: EXPRESS
+      DefinitionUri: ../stepfunctions/workflow-definition.asl.json
+      DefinitionSubstitutions:
+        CreateLeadHandlerArn: !GetAtt CreateLeadHandler.Arn
+        GenerateDynamicScenarioHandlerArn: !GetAtt GenerateDynamicScenarioHandler.Arn
+        InvokeOutboundCallHandlerArn: !GetAtt InvokeOutboundCallHandler.Arn
+        UpdateLeadHandlerArn: !GetAtt UpdateLeadHandler.Arn
+      Logging:
+        Level: ALL
+        IncludeExecutionData: true
+        Destinations:
+          - CloudWatchLogsLogGroup:
+              LogGroupArn: !GetAtt WorkflowLogGroup.Arn
+      Policies:
+        - LambdaInvokePolicy:
+            FunctionName: !Ref CreateLeadHandler
+        - LambdaInvokePolicy:
+            FunctionName: !Ref GenerateDynamicScenarioHandler
+        - LambdaInvokePolicy:
+            FunctionName: !Ref InvokeOutboundCallHandler
+        - LambdaInvokePolicy:
+            FunctionName: !Ref UpdateLeadHandler
+
+  WorkflowLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/vendedlogs/states/${ProjectName}-Workflow-${Environment}
+      RetentionInDays: !If [IsProduction, 30, 7]
+
+Outputs:
+  InteractionsTableName:
+    Value: !Ref InteractionsTable
+    Export:
+      Name: !Sub ${AWS::StackName}-InteractionsTable
+
+  LexFulfillmentHandlerArn:
+    Value: !GetAtt LexFulfillmentHandler.Arn
+    Export:
+      Name: !Sub ${AWS::StackName}-LexFulfillmentHandler
+
+  WorkflowArn:
+    Value: !GetAtt AtlasEngineWorkflow.Arn
+    Export:
+      Name: !Sub ${AWS::StackName}-Workflow

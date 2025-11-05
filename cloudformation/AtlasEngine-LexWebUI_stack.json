@@ -1,0 +1,370 @@
+{
+    "Stacks": [
+        {
+            "StackId": "arn:aws:cloudformation:us-west-2:<AWS_ACCOUNT_ID>:stack/AtlasEngine-LexWebUI/fe8b0cf0-9f6e-11f0-bb8b-06c9f9da9bb1",
+            "StackName": "AtlasEngine-LexWebUI",
+            "Description": "Master Lex Web UI CloudFormation template (v0.22.5)\nThe Lex Web Ui can be deployed to operate against either a Lex V2 Bot OR a Lex V1 Bot BUT NOT BOTH.\nPlease configure either the Lex V2 bot information OR the Lex V1 bot information and leave the other\nversion input parameters as defaulted.\nA deployment of Lex Web Ui can not be switched between V2 and V1 by updating the stack with different parameters.\nIt deploys:\n    - S3 buckets to host the web application\n    - CodeBuild project to build the configuration and deploy to S3\n    - Optional Lex Bot (based on OrderFlowers example)\n    - Optional Cognito Identity Pool for unauthenticated identities\n    - Optional Lambda function to delete S3 buckets\n    - CloudWatch Logs groups related to Lambda functions\n    - Associated IAM roles\n",
+            "Parameters": [
+                {
+                    "ParameterKey": "WebAppConfPositiveFeedback",
+                    "ParameterValue": "Thumbs up"
+                },
+                {
+                    "ParameterKey": "MinimizedButtonContent",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "CodeBuildName",
+                    "ParameterValue": "lex-web-ui"
+                },
+                {
+                    "ParameterKey": "ConnectAttachChatTranscript",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "BootstrapBucket",
+                    "ParameterValue": "aws-bigdata-blog-replica-us-west-2"
+                },
+                {
+                    "ParameterKey": "ConnectPromptForNameMessage",
+                    "ParameterValue": "Before starting a live chat, please tell me your name?"
+                },
+                {
+                    "ParameterKey": "BootstrapPrefix",
+                    "ParameterValue": "artifacts/aws-lex-web-ui/artifacts"
+                },
+                {
+                    "ParameterKey": "MessageFont",
+                    "ParameterValue": "Inter sans-serif"
+                },
+                {
+                    "ParameterKey": "ConnectLiveChatTerms",
+                    "ParameterValue": "live chat"
+                },
+                {
+                    "ParameterKey": "WebAppConfNegativeFeedback",
+                    "ParameterValue": "Thumbs down"
+                },
+                {
+                    "ParameterKey": "AmazonQAppId",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "WebAppAcmCertificateArn",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "ConnectStartLiveChatLabel",
+                    "ParameterValue": "Start Live Chat"
+                },
+                {
+                    "ParameterKey": "ForceCognitoLogin",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "ConnectInstanceId",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "ConnectEndLiveChatLabel",
+                    "ParameterValue": "End Live Chat"
+                },
+                {
+                    "ParameterKey": "ConnectStartLiveChatIcon",
+                    "ParameterValue": "people_alt"
+                },
+                {
+                    "ParameterKey": "BotName",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "WebAppPath",
+                    "ParameterValue": "/parent.html"
+                },
+                {
+                    "ParameterKey": "WebAppConfHelp",
+                    "ParameterValue": "Help"
+                },
+                {
+                    "ParameterKey": "ConnectEndLiveChatIcon",
+                    "ParameterValue": "call_end"
+                },
+                {
+                    "ParameterKey": "LexV2BotLocaleId",
+                    "ParameterValue": "en_US"
+                },
+                {
+                    "ParameterKey": "WebAppConfToolbarTitle",
+                    "ParameterValue": "Atlas Engine"
+                },
+                {
+                    "ParameterKey": "TitleLogoImgUrl",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "ChatBackgroundColor",
+                    "ParameterValue": "#111827"
+                },
+                {
+                    "ParameterKey": "ConnectAgentJoinedMessage",
+                    "ParameterValue": "{Agent} has joined."
+                },
+                {
+                    "ParameterKey": "ConnectTranscriptRedactRegex",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "ShouldEnableUpload",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "ShouldEnableLiveChat",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "CustomerChatBubble",
+                    "ParameterValue": "#374151"
+                },
+                {
+                    "ParameterKey": "ShouldLoadIframeMinimized",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "ConnectTranscriptMessageDelayInMsec",
+                    "ParameterValue": "150"
+                },
+                {
+                    "ParameterKey": "ConnectChatEndedMessage",
+                    "ParameterValue": "Chat ended."
+                },
+                {
+                    "ParameterKey": "WebAppConfCname",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "WebAppConfBotInitialUtterance",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "CleanupBuckets",
+                    "ParameterValue": "true"
+                },
+                {
+                    "ParameterKey": "BotAvatarImgUrl",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "MessageMenu",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "LexV2BotAliasId",
+                    "ParameterValue": "TSTALIASID"
+                },
+                {
+                    "ParameterKey": "IDCApplicationARN",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "MinimizedButtonColor",
+                    "ParameterValue": "#4f46e5"
+                },
+                {
+                    "ParameterKey": "CognitoIdentityPoolId",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "WebAppWafAclArn",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "MessageTextColor",
+                    "ParameterValue": "#d1d5db"
+                },
+                {
+                    "ParameterKey": "VpcSecurityGroupId",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "AllowStreamingResponses",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "HideButtonMessageBubble",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "ToolbarColor",
+                    "ParameterValue": "#4f46e5"
+                },
+                {
+                    "ParameterKey": "ConnectEndLiveChatUtterance",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "EnableMarkdownSupport",
+                    "ParameterValue": "true"
+                },
+                {
+                    "ParameterKey": "ReInitSessionAttributesOnRestart",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "BotChatBubble",
+                    "ParameterValue": "#4f46e5"
+                },
+                {
+                    "ParameterKey": "WebAppConfBotInitialSpeech",
+                    "ParameterValue": "Say Hi this is Atlas AI. tell me how this tech can help me with"
+                },
+                {
+                    "ParameterKey": "EnableCognitoLogin",
+                    "ParameterValue": "true"
+                },
+                {
+                    "ParameterKey": "UploadBucket",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "ConnectWaitForAgentMessageIntervalInSeconds",
+                    "ParameterValue": "60"
+                },
+                {
+                    "ParameterKey": "VpcSubnetId",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "AllowedSignUpEmailDomain",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "ConnectWaitForAgentMessage",
+                    "ParameterValue": "Thanks for waiting. An agent will be with you when available."
+                },
+                {
+                    "ParameterKey": "retryCountPostTextTimeout",
+                    "ParameterValue": "1"
+                },
+                {
+                    "ParameterKey": "SaveHistory",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "ConnectContactFlowId",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "WebAppParentOrigin",
+                    "ParameterValue": "https://atlasengine.net"
+                },
+                {
+                    "ParameterKey": "ConnectAgentLeftMessage",
+                    "ParameterValue": "{Agent} has left."
+                },
+                {
+                    "ParameterKey": "WebAppConfBotInitialText",
+                    "ParameterValue": "Hi I am Atlas an AI callback assistant. Ask me how how this tech can help your business delete your info or initiate the callback demo."
+                },
+                {
+                    "ParameterKey": "BackButton",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "StreamingWebSocketEndpoint",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "ShowResponseCardTitle",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "ShouldDeleteBot",
+                    "ParameterValue": "true"
+                },
+                {
+                    "ParameterKey": "retryOnLexPostTextTimeout",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "BotAlias",
+                    "ParameterValue": "$LATEST"
+                },
+                {
+                    "ParameterKey": "LexV2BotId",
+                    "ParameterValue": "M4GK3H6ODQ"
+                },
+                {
+                    "ParameterKey": "CognitoIdentityPoolName",
+                    "ParameterValue": "Lex Web UI"
+                }
+            ],
+            "CreationTime": "2025-10-02T09:05:51.602000+00:00",
+            "LastUpdatedTime": "2025-10-28T11:17:11.676000+00:00",
+            "RollbackConfiguration": {
+                "RollbackTriggers": []
+            },
+            "StackStatus": "UPDATE_COMPLETE",
+            "DisableRollback": false,
+            "NotificationARNs": [],
+            "Capabilities": [
+                "CAPABILITY_IAM",
+                "CAPABILITY_AUTO_EXPAND"
+            ],
+            "Outputs": [
+                {
+                    "OutputKey": "CognitoIdentityPoolId",
+                    "OutputValue": "us-west-2:f2e0dde0-aa45-42cc-ab1d-610aabd22bfb",
+                    "Description": "Cognito Identity Pool Id"
+                },
+                {
+                    "OutputKey": "CognitoUserPoolPubKey",
+                    "OutputValue": "https://cognito-idp.us-west-2.amazonaws.com/us-west-2_LEtJbrrcp/.well-known/jwks.json",
+                    "Description": "Include Cognito User Pool Public Key URL in stack outputs (needed for QnABot token auth)"
+                },
+                {
+                    "OutputKey": "SnippetUrl",
+                    "OutputValue": "https://d3ntdt0lai2r9y.cloudfront.net/iframe-snippet.html",
+                    "Description": "URL of a page showing the snippet to load the chatbot UI as an iframe\n"
+                },
+                {
+                    "OutputKey": "CognitoUserPoolClientId",
+                    "OutputValue": "4rl0ldnj16qcsu9tobs6q473ar",
+                    "Description": "Cognito User Pool Client Id",
+                    "ExportName": "AtlasEngine-LexWebUI:CognitoUserPoolClientId"
+                },
+                {
+                    "OutputKey": "WebAppBucket",
+                    "OutputValue": "atlasengine-lexwebui-codebuilddeploy--webappbucket-k2kfa9imz0kf",
+                    "Description": "S3 bucket hosting lexwebui artifacts\n",
+                    "ExportName": "AtlasEngine-LexWebUI:WebAppBucket"
+                },
+                {
+                    "OutputKey": "CodeBuildUrl",
+                    "OutputValue": "https://console.aws.amazon.com/codebuild/home?region=us-west-2#/projects/lex-web-ui/view",
+                    "Description": "Monitor the pipeline URL to see when the application has been fully built and deployed.\n"
+                },
+                {
+                    "OutputKey": "WebAppUrl",
+                    "OutputValue": "https://d3ntdt0lai2r9y.cloudfront.net/index.html",
+                    "Description": "URL of the stand-alone sample web application. This page will be available after the pipeline/deployment completes.\n"
+                },
+                {
+                    "OutputKey": "WebAppDomainName",
+                    "OutputValue": "d3ntdt0lai2r9y.cloudfront.net",
+                    "Description": "DomainName of the web application\n",
+                    "ExportName": "AtlasEngine-LexWebUI:WebAppDomainName"
+                },
+                {
+                    "OutputKey": "LoaderScriptUrl",
+                    "OutputValue": "https://d3ntdt0lai2r9y.cloudfront.net/lex-web-ui-loader.min.js",
+                    "Description": "URL of the loader script This script will be available after the pipeline/deployment completes.\n"
+                }
+            ],
+            "Tags": [],
+            "EnableTerminationProtection": false,
+            "DriftInformation": {
+                "StackDriftStatus": "NOT_CHECKED"
+            }
+        }
+    ]
+}

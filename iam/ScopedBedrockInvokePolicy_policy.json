@@ -1,0 +1,15 @@
+{
+    "Policy": {
+        "PolicyName": "ScopedBedrockInvokePolicy",
+        "PolicyId": "ANPA6GBMBMFFCSVC2UCJS",
+        "Arn": "arn:aws:iam::<AWS_ACCOUNT_ID>:policy/ScopedBedrockInvokePolicy",
+        "Path": "/",
+        "DefaultVersionId": "v2",
+        "AttachmentCount": 3,
+        "PermissionsBoundaryUsageCount": 0,
+        "IsAttachable": true,
+        "CreateDate": "2025-10-29T08:09:53+00:00",
+        "UpdateDate": "2025-10-29T10:02:59+00:00",
+        "Tags": []
+    }
+}

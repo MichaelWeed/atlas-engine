@@ -1,0 +1,48 @@
+{
+    "FunctionName": "InvokeOutboundCallHandler",
+    "FunctionArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:InvokeOutboundCallHandler",
+    "Runtime": "python3.13",
+    "Role": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/InvokeOutboundCallHandler-role-p7ou5zno",
+    "Handler": "lambda_function.lambda_handler",
+    "CodeSize": 8785,
+    "Description": "",
+    "Timeout": 300,
+    "MemorySize": 256,
+    "LastModified": "2025-10-29T11:14:45.000+0000",
+    "CodeSha256": "pMwpDv8lfD4Evw+ZHqh0Mk2yaY4XmgqMLdpWZcAQoMg=",
+    "Version": "$LATEST",
+    "Environment": {
+        "Variables": {
+            "SOURCE_PHONE_NUMBER": "<SOURCE_PHONE_NUMBER>",
+            "CONTACT_FLOW_ID": "b1bc7649-2fda-41ad-b28d-cde3a368cd31",
+            "QUEUE_ID": "5f85a1b2-47e9-49a7-a248-50434bb19041",
+            "BYPASS_IDEMPOTENCY": "true",
+            "INTERACTIONS_DYNAMODB_TABLE": "AtlasEngineInteractions",
+            "INSTANCE_ID": "<CONNECT_INSTANCE_ID>"
+        }
+    },
+    "TracingConfig": {
+        "Mode": "PassThrough"
+    },
+    "RevisionId": "ff3cd22c-25d9-4d81-b3b4-e756c7b38243",
+    "State": "Active",
+    "LastUpdateStatus": "Successful",
+    "PackageType": "Zip",
+    "Architectures": [
+        "x86_64"
+    ],
+    "EphemeralStorage": {
+        "Size": 512
+    },
+    "SnapStart": {
+        "ApplyOn": "None",
+        "OptimizationStatus": "Off"
+    },
+    "RuntimeVersionConfig": {
+        "RuntimeVersionArn": "arn:aws:lambda:us-west-2::runtime:fe7a78198cc1037d599c8e576c9b94c4d6b88f8067b86f7d3481b75d9fd76c24"
+    },
+    "LoggingConfig": {
+        "LogFormat": "Text",
+        "LogGroup": "/aws/lambda/InvokeOutboundCallHandler"
+    }
+}

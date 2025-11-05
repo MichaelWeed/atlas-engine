@@ -1,0 +1,8 @@
+{
+    "PolicyNames": [
+        "ConnectOutboundCallPolicy",
+        "ConnectOutboundPolicy",
+        "DynamoDBTaskTokenAccess",
+        "StepFunctionsCallback"
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "FunctionName": "SummarizeAndResumeHandler",
+    "FunctionArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:SummarizeAndResumeHandler",
+    "Runtime": "python3.13",
+    "Role": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/SummarizeAndResumeHandler-role-ogn1ngtx",
+    "Handler": "lambda_function.lambda_handler",
+    "CodeSize": 3754,
+    "Description": "",
+    "Timeout": 60,
+    "MemorySize": 1536,
+    "LastModified": "2025-10-29T11:17:51.000+0000",
+    "CodeSha256": "R6T+sQNU5yOqdL9KKD6D4/bSmIpxFZP5DxpuxMBsJ08=",
+    "Version": "$LATEST",
+    "Environment": {
+        "Variables": {
+            "ANTHROPIC_VERSION": "bedrock-2023-05-31",
+            "BEDROCK_MODEL_ID": "anthropic.claude-3-5-sonnet-20240620-v1:0",
+            "INTERACTIONS_DYNAMODB_TABLE": "AtlasEngineInteractions",
+            "SALESFORCE_SECRET_ARN": "arn:aws:secretsmanager:us-west-2:<AWS_ACCOUNT_ID>:secret:AtlasEngine/SalesforceCreds-4xWYp9"
+        }
+    },
+    "TracingConfig": {
+        "Mode": "PassThrough"
+    },
+    "RevisionId": "b5b67f0e-819b-43c9-9ad8-5decd796b7e9",
+    "Layers": [
+        {
+            "Arn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:RequestsLibrary:3",
+            "CodeSize": 1140592
+        },
+        {
+            "Arn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:SimpleSalesforceLibrary:5",
+            "CodeSize": 13916010
+        }
+    ],
+    "State": "Active",
+    "LastUpdateStatus": "Successful",
+    "PackageType": "Zip",
+    "Architectures": [
+        "x86_64"
+    ],
+    "EphemeralStorage": {
+        "Size": 512
+    },
+    "SnapStart": {
+        "ApplyOn": "None",
+        "OptimizationStatus": "Off"
+    },
+    "RuntimeVersionConfig": {
+        "RuntimeVersionArn": "arn:aws:lambda:us-west-2::runtime:fe7a78198cc1037d599c8e576c9b94c4d6b88f8067b86f7d3481b75d9fd76c24"
+    },
+    "LoggingConfig": {
+        "LogFormat": "Text",
+        "LogGroup": "/aws/lambda/SummarizeAndResumeHandler"
+    }
+}

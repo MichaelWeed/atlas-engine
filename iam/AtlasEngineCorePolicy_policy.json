@@ -1,0 +1,15 @@
+{
+    "Policy": {
+        "PolicyName": "AtlasEngineCorePolicy",
+        "PolicyId": "ANPA6GBMBMFFHVMMSOSAZ",
+        "Arn": "arn:aws:iam::<AWS_ACCOUNT_ID>:policy/AtlasEngineCorePolicy",
+        "Path": "/",
+        "DefaultVersionId": "v7",
+        "AttachmentCount": 8,
+        "PermissionsBoundaryUsageCount": 0,
+        "IsAttachable": true,
+        "CreateDate": "2025-10-29T08:10:19+00:00",
+        "UpdateDate": "2025-10-29T10:20:50+00:00",
+        "Tags": []
+    }
+}

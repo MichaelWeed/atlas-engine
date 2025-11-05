@@ -1,0 +1,12 @@
+{
+    "Attributes": {
+        "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Publisher\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"sms-voice.amazonaws.com\"},\"Action\":\"sns:Publish\",\"Resource\":\"arn:aws:sns:us-west-2:<AWS_ACCOUNT_ID>:SmsQuickStartSnsDestination-d9558817\"}]}",
+        "Owner": "<AWS_ACCOUNT_ID>",
+        "SubscriptionsPending": "0",
+        "TopicArn": "arn:aws:sns:us-west-2:<AWS_ACCOUNT_ID>:SmsQuickStartSnsDestination-d9558817",
+        "EffectiveDeliveryPolicy": "{\"http\":{\"defaultHealthyRetryPolicy\":{\"minDelayTarget\":20,\"maxDelayTarget\":20,\"numRetries\":3,\"numMaxDelayRetries\":0,\"numNoDelayRetries\":0,\"numMinDelayRetries\":0,\"backoffFunction\":\"linear\"},\"disableSubscriptionOverrides\":false,\"defaultRequestPolicy\":{\"headerContentType\":\"text/plain; charset=UTF-8\"}}}",
+        "SubscriptionsConfirmed": "1",
+        "DisplayName": "",
+        "SubscriptionsDeleted": "0"
+    }
+}

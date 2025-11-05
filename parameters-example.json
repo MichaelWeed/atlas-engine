@@ -1,0 +1,34 @@
+[
+  {
+    "ParameterKey": "Environment",
+    "ParameterValue": "dev"
+  },
+  {
+    "ParameterKey": "ProjectName",
+    "ParameterValue": "AtlasEngine"
+  },
+  {
+    "ParameterKey": "SalesforceUsername",
+    "ParameterValue": "your-user@company.com"
+  },
+  {
+    "ParameterKey": "SalesforceClientId",
+    "ParameterValue": "YOUR_CONNECTED_APP_CLIENT_ID"
+  },
+  {
+    "ParameterKey": "SalesforcePrivateKey",
+    "ParameterValue": "BASE64_ENCODED_PRIVATE_KEY"
+  },
+  {
+    "ParameterKey": "BedrockModelId",
+    "ParameterValue": "anthropic.claude-3-5-sonnet-20240620-v1:0"
+  },
+  {
+    "ParameterKey": "ConnectInstanceId",
+    "ParameterValue": ""
+  },
+  {
+    "ParameterKey": "SourcePhoneNumber",
+    "ParameterValue": ""
+  }
+]

@@ -1,0 +1,67 @@
+{
+    "Configuration": {
+        "FunctionName": "CreateLeadHandler",
+        "FunctionArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:CreateLeadHandler",
+        "Runtime": "python3.13",
+        "Role": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/CreateLeadHandler-role-sduo9h9n",
+        "Handler": "lambda_function.lambda_handler",
+        "CodeSize": 1964,
+        "Description": "",
+        "Timeout": 30,
+        "MemorySize": 256,
+        "LastModified": "2025-11-05T04:53:24.000+0000",
+        "CodeSha256": "jNMDATdMHL9bnrMRygx1oVfmljSWbfiNDBYkK5GqGKk=",
+        "Version": "$LATEST",
+        "Environment": {
+            "Variables": {
+                "SALESFORCE_SECRET_NAME": "AtlasEngine/SalesforceCreds",
+                "INTERACTIONS_DYNAMODB_TABLE": "AtlasEngineInteractions",
+                "SALESFORCE_SECRET_ARN": "arn:aws:secretsmanager:us-west-2:<AWS_ACCOUNT_ID>:secret:AtlasEngine/SalesforceCreds-4xWYp9"
+            }
+        },
+        "TracingConfig": {
+            "Mode": "PassThrough"
+        },
+        "RevisionId": "32ffbf1a-21f7-4016-9ece-20a6aeed99e7",
+        "Layers": [
+            {
+                "Arn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:PythonLibraries-Minimal-v6:1",
+                "CodeSize": 2995132
+            },
+            {
+                "Arn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:SimpleSalesforceLibrary:5",
+                "CodeSize": 13916010
+            }
+        ],
+        "State": "Active",
+        "LastUpdateStatus": "Successful",
+        "PackageType": "Zip",
+        "Architectures": [
+            "x86_64"
+        ],
+        "EphemeralStorage": {
+            "Size": 512
+        },
+        "SnapStart": {
+            "ApplyOn": "None",
+            "OptimizationStatus": "Off"
+        },
+        "RuntimeVersionConfig": {
+            "RuntimeVersionArn": "arn:aws:lambda:us-west-2::runtime:fe7a78198cc1037d599c8e576c9b94c4d6b88f8067b86f7d3481b75d9fd76c24"
+        },
+        "LoggingConfig": {
+            "LogFormat": "Text",
+            "LogGroup": "/aws/lambda/CreateLeadHandler"
+        }
+    },
+    "Code": {
+        "RepositoryType": "S3",
+        "Location": "https://awslambda-us-west-2-tasks.s3.us-west-2.amazonaws.com/snapshots/<AWS_ACCOUNT_ID>/CreateLeadHandler-1e94ee09-2e39-4e97-9d55-66d6e9b5fbae?versionId=InxCBO1VaXU79TvfVWOmGz9M2rREqSmQ&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMT%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIAeuFO6aK00zupHeIEnwTepPyha93mmsZHhF15QwwC6VAiBP71Bzv%2BQKvUUgXszlDI%2BNmL6SMvzYZi3JZEB%2FnoyNsSqUAgiN%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAUaDDUwMjI5NzA3NjE2MyIMpotSnMokEi1eVSKLKugBW9jR5O%2BRiwonV8TNoH2tlA9DluYzYn1NnoNauWRNw08MGy0YVTk1lsNJWkPyi3xERMVAwU6H196mgvH7vmqgq02SN505zKi3blHjPNgAvqo74IlauUt7l%2BG%2FgNy1j3UQVC7wkETUFF1QybfUQZ1RzhiA%2FzEsPFVhVjIMjPll1lmXQB%2F7cy2m8IYUYG4j%2BvVVjRNgoA2%2BRyr0fdguJrcOHP519XRUBkTG%2Bin5XASxvdWGDu9giwJ%2B0T%2Fd2I6HZzxk1FZmgvkGjYF5H7WO1MEnhQ4qI%2BuA9r8TjKYkgGoLX9c2Fs6Mce1lhTDM86zIBjqOAe0Y61yMpsov6mKKptoH6hAHgFOTr6rTOjyD7joZxVfGKdSqDjq1VA5dAxIhm%2BMVmwoOhFjxapaEX7YQ9pimTPUhkFFWEwW%2BDuaZ%2F%2BDU5nSGjkoJzz4DC%2B4ViRiSeazJUTVFm3ottFq48QTwm%2FEBwgBtPUy%2FmO2vvSIbwF3nC2hiIe85z%2FadlPyfqkB0Ur4%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20251105T142942Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Credential=ASIAXJ4Z5EHB4M23BCLA%2F20251105%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=551dc96807f489d9993bd81d30c1a857ce4b98eecd16637f34f1720435f3daf4"
+    },
+    "Tags": {
+        "LastReviewed": "2025-10-27",
+        "Project": "AtlasEngine",
+        "Owner": "AtlasEngineDemo",
+        "Environment": "demo"
+    }
+}

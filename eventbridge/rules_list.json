@@ -1,0 +1,11 @@
+{
+    "Rules": [
+        {
+            "Name": "TranscribeJobStatusRule",
+            "Arn": "arn:aws:events:us-west-2:<AWS_ACCOUNT_ID>:rule/TranscribeJobStatusRule",
+            "EventPattern": "{\n        \"source\": [\"aws.transcribe\"],\n        \"detail-type\": [\"Transcribe Job State Change\"],\n        \"detail\": {\n            \"TranscriptionJobStatus\": [\"COMPLETED\", \"FAILED\"]\n        }\n    }",
+            "State": "ENABLED",
+            "EventBusName": "default"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "Role": {
+        "Path": "/service-role/",
+        "RoleName": "GenerateDynamicScenarioHandler-role-vbv9ftg1",
+        "RoleId": "AROA6GBMBMFFDT7H4O3JB",
+        "Arn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/GenerateDynamicScenarioHandler-role-vbv9ftg1",
+        "CreateDate": "2025-10-11T04:36:16+00:00",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "MaxSessionDuration": 3600,
+        "RoleLastUsed": {
+            "LastUsedDate": "2025-10-29T11:31:04+00:00",
+            "Region": "us-west-2"
+        }
+    }
+}

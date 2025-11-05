@@ -1,0 +1,14 @@
+{
+    "logGroups": [
+        {
+            "logGroupName": "/aws/lambda/SummarizeAndResumeHandler",
+            "creationTime": 1759989414515,
+            "retentionInDays": 5,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/lambda/SummarizeAndResumeHandler:*",
+            "storedBytes": 414008,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/lambda/SummarizeAndResumeHandler"
+        }
+    ]
+}

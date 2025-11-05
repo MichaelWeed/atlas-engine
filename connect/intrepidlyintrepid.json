@@ -1,0 +1,15 @@
+{
+    "Instance": {
+        "Id": "<CONNECT_INSTANCE_ID>",
+        "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>",
+        "IdentityManagementType": "CONNECT_MANAGED",
+        "InstanceAlias": "intrepidlyintrepid",
+        "CreatedTime": "2024-07-15T02:14:46-07:00",
+        "ServiceRole": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/aws-service-role/connect.amazonaws.com/AWSServiceRoleForAmazonConnect_IqBW8hEOz1rFCyqCZKva",
+        "InstanceStatus": "ACTIVE",
+        "InboundCallsEnabled": true,
+        "OutboundCallsEnabled": true,
+        "InstanceAccessUrl": "https://intrepidlyintrepid.my.connect.aws",
+        "Tags": {}
+    }
+}

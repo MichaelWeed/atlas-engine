@@ -1,0 +1,16 @@
+{
+    "Content": {
+        "Location": "<LAYER_DOWNLOAD_URL>",
+        "CodeSha256": "MCVScA+thPXZVBaJuEjcec2lQuo1CQIJETVoOO4G8lA=",
+        "CodeSize": 13916010
+    },
+    "LayerArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:SimpleSalesforceLibrary",
+    "LayerVersionArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:SimpleSalesforceLibrary:5",
+    "Description": "",
+    "CreatedDate": "2025-10-11T06:14:35.996+0000",
+    "Version": 5,
+    "CompatibleRuntimes": [
+        "python3.13"
+    ],
+    "CompatibleArchitectures": []
+}

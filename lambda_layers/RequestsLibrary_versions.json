@@ -1,0 +1,14 @@
+{
+    "LayerVersions": [
+        {
+            "LayerVersionArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:RequestsLibrary:4",
+            "Version": 4,
+            "CreatedDate": "2025-10-23T15:06:32.778+0000",
+            "CompatibleRuntimes": [
+                "python3.13"
+            ],
+            "CompatibleArchitectures": []
+        }
+    ],
+    "NextToken": "eyJNYXJrZXIiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAxfQ=="
+}

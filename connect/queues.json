@@ -1,0 +1,33 @@
+{
+    "QueueSummaryList": [
+        {
+            "Id": "3a12e80d-c5e9-4ee4-896b-9740f1da27c8",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/queue/agent/3a12e80d-c5e9-4ee4-896b-9740f1da27c8",
+            "QueueType": "AGENT"
+        },
+        {
+            "Id": "5f85a1b2-47e9-49a7-a248-50434bb19041",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/queue/5f85a1b2-47e9-49a7-a248-50434bb19041",
+            "Name": "Atlas Queue",
+            "QueueType": "STANDARD",
+            "LastModifiedTime": "2025-10-10T22:44:02.161000-07:00",
+            "LastModifiedRegion": "us-west-2"
+        },
+        {
+            "Id": "c0eec745-c261-4450-bc23-cb806a1d8641",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/queue/c0eec745-c261-4450-bc23-cb806a1d8641",
+            "Name": "BasicQueue",
+            "QueueType": "STANDARD",
+            "LastModifiedTime": "2024-07-24T04:41:20.952000-07:00",
+            "LastModifiedRegion": "us-west-2"
+        },
+        {
+            "Id": "e2c47ad2-c714-4bbd-9f87-b2e253bdddb8",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/queue/e2c47ad2-c714-4bbd-9f87-b2e253bdddb8",
+            "Name": "SMS TFN",
+            "QueueType": "STANDARD",
+            "LastModifiedTime": "2024-10-02T12:00:36.469000-07:00",
+            "LastModifiedRegion": "us-west-2"
+        }
+    ]
+}

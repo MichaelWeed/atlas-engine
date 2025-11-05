@@ -1,0 +1,4 @@
+{
+    "Policy": "{\"Version\":\"2012-10-17\",\"Id\":\"default\",\"Statement\":[{\"Sid\":\"allow-eventbridge-invoke\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"events.amazonaws.com\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:SummarizeAndResumeHandler\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:events:us-west-2:<AWS_ACCOUNT_ID>:rule/TranscribeJobStatusRule\"}}}]}",
+    "RevisionId": "a93c4fa2-727d-403f-8d91-9d1e795223e2"
+}

@@ -1,0 +1,148 @@
+╔══════════════════════════════════════════════════════════════╗
+║                  ATLAS ENGINE CHEAT SHEET                    ║
+║                  Copy & Paste These Commands                 ║
+╚══════════════════════════════════════════════════════════════╝
+
+📍 NAVIGATE TO FOLDER
+─────────────────────
+cd /Users/johndoe/Downloads/aws_org_export
+
+
+🔧 CHECK IF YOU HAVE REQUIRED TOOLS
+────────────────────────────────────
+aws --version        # Should show version 2.x
+sam --version        # Should show version 1.100+
+python3 --version    # Should show version 3.13+
+
+
+⚙️  CONFIGURE AWS REGION (Optional)
+────────────────────────────────────
+# Check current region
+aws configure get region
+
+# Set region to us-west-2
+aws configure set region us-west-2
+
+# Set region to us-east-1
+aws configure set region us-east-1
+
+
+🚀 DEPLOY EVERYTHING
+────────────────────
+chmod +x deploy.sh
+./deploy.sh
+
+# The script will ask you:
+# - Environment: Type "dev" and press Enter
+# - Region: Press Enter (uses your configured region)
+# - Salesforce Secret: Press Enter (uses default)
+
+
+✅ TEST DEPLOYMENT
+──────────────────
+chmod +x test-deployment.sh
+./test-deployment.sh dev
+
+
+📊 VIEW LOGS
+────────────
+sam logs --stack-name AtlasEngine-dev --tail
+
+
+🗑️  DELETE EVERYTHING
+─────────────────────
+chmod +x cleanup.sh
+./cleanup.sh dev
+
+
+💡 COMMON SCENARIOS
+───────────────────
+
+Scenario 1: First time deploying
+  cd /Users/johndoe/Downloads/aws_org_export
+  chmod +x deploy.sh
+  ./deploy.sh
+
+Scenario 2: Deploy to different region
+  aws configure set region us-east-1
+  ./deploy.sh
+
+Scenario 3: Deploy to production
+  ./deploy.sh
+  # When asked for environment, type: prod
+
+Scenario 4: Something went wrong, start over
+  ./cleanup.sh dev
+  ./deploy.sh
+
+
+🔍 TROUBLESHOOTING
+──────────────────
+
+Problem: "command not found: aws"
+Solution: Install AWS CLI
+  https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+Problem: "command not found: sam"
+Solution: Install SAM CLI
+  https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html
+
+Problem: "Unable to locate credentials"
+Solution: Configure AWS credentials
+  aws configure
+
+Problem: Deployment fails
+Solution: Check what's missing
+  chmod +x validate.sh
+  ./validate.sh
+
+
+📝 WHAT YOU DON'T NEED TO DO
+────────────────────────────
+✗ Don't manually add your AWS account ID (auto-detected)
+✗ Don't edit template.yaml (unless customizing)
+✗ Don't create resources manually in AWS Console
+✗ Don't worry about Lambda layers (script builds them)
+✗ Don't create IAM roles (CloudFormation does it)
+
+
+📝 WHAT YOU DO NEED
+───────────────────
+✓ AWS account with admin access
+✓ AWS CLI installed and configured (aws configure)
+✓ SAM CLI installed
+✓ Python 3.13+
+✓ Salesforce Connected App credentials (can add later)
+
+
+💰 COSTS
+────────
+Development:  ~$24/month
+Staging:      ~$214/month
+Production:   ~$1,138/month
+
+See COST_ESTIMATION.md for details
+
+
+🎯 QUICK REFERENCE
+──────────────────
+Deploy:     ./deploy.sh
+Test:       ./test-deployment.sh dev
+Logs:       sam logs --stack-name AtlasEngine-dev --tail
+Cleanup:    ./cleanup.sh dev
+Validate:   ./validate.sh
+
+
+═══════════════════════════════════════════════════════════════
+
+SIMPLEST POSSIBLE DEPLOYMENT:
+
+1. Open Terminal
+2. cd /Users/johndoe/Downloads/aws_org_export
+3. chmod +x deploy.sh
+4. ./deploy.sh
+5. Answer questions (just press Enter for defaults)
+6. Wait 20 minutes
+7. Done!
+
+═══════════════════════════════════════════════════════════════

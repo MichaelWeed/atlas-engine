@@ -1,0 +1,55 @@
+{
+    "Configuration": {
+        "FunctionName": "GenerateDynamicScenarioHandler",
+        "FunctionArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:GenerateDynamicScenarioHandler",
+        "Runtime": "python3.13",
+        "Role": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/GenerateDynamicScenarioHandler-role-vbv9ftg1",
+        "Handler": "lambda_function.lambda_handler",
+        "CodeSize": 1222,
+        "Description": "",
+        "Timeout": 30,
+        "MemorySize": 256,
+        "LastModified": "2025-11-04T09:34:37.000+0000",
+        "CodeSha256": "5k5ph7az5CA9+N4SkIdQW+1MB0mXNGLTY76A95BbBA0=",
+        "Version": "$LATEST",
+        "Environment": {
+            "Variables": {
+                "MODEL_ID": "anthropic.claude-3-5-sonnet-20241022-v2:0"
+            }
+        },
+        "TracingConfig": {
+            "Mode": "PassThrough"
+        },
+        "RevisionId": "ede80dca-cbc1-4f8f-a578-3efca81cf8b9",
+        "State": "Active",
+        "LastUpdateStatus": "Successful",
+        "PackageType": "Zip",
+        "Architectures": [
+            "x86_64"
+        ],
+        "EphemeralStorage": {
+            "Size": 512
+        },
+        "SnapStart": {
+            "ApplyOn": "None",
+            "OptimizationStatus": "Off"
+        },
+        "RuntimeVersionConfig": {
+            "RuntimeVersionArn": "arn:aws:lambda:us-west-2::runtime:fe7a78198cc1037d599c8e576c9b94c4d6b88f8067b86f7d3481b75d9fd76c24"
+        },
+        "LoggingConfig": {
+            "LogFormat": "Text",
+            "LogGroup": "/aws/lambda/GenerateDynamicScenarioHandler"
+        }
+    },
+    "Code": {
+        "RepositoryType": "S3",
+        "Location": "https://awslambda-us-west-2-tasks.s3.us-west-2.amazonaws.com/snapshots/<AWS_ACCOUNT_ID>/GenerateDynamicScenarioHandler-0a4ae8be-d308-4d21-ae85-0e24adf8d893?versionId=DWBZX4y2toFLuV0MKby52M81ekQ6Wk_n&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQCEXcYssDivj251xF5SKPNbIukIDf410Ehv6dzgd%2BmvZwIhAOQjWSWIErMN5w4q6t3fXAcmiS%2FGPgzQIffSdky5has5KpQCCIz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQBRoMNTAyMjk3MDc2MTYzIgyubTAEnzadBIQR%2B%2FYq6AGg90PAVsqQvdO9tf4XC5Sv6CbK6xzFFg5TCwMcRNE0py0%2FTN7LKRCIMlphKHJbQqoDbewbjdHTaYamyLvvPl3QWvR34q9Wf26v921vA32U6sxmyRO8f671jXb3igjzixoBQSDxCLxDyhb0pHlPHh%2Fq1jYUeZo1R89LsGQz%2F2ECzV8Vl06dkgz9tfOk6sMWphBW7mYBUg274vKZeVCmMZ9HVuoH1VFLSv5TnZAqFVy08KvqTzIIUCFcn5VGR8XtvufCHkxX8XN81J11MSUZD6q8zIpU%2BlQmhi%2BLhSYaj4xZDhADHy7DMPhhMLTbrMgGOowBxx%2B0WOOu%2Bt%2BwCMhoM8gFCBG1%2BAJJWuw%2FbgnZdZ9R2UnOkYiRY6PoCluTS7WlR4kcuXfXOHSzHUnDnmii8mOvb3MtgjrbdCnKCmLdXX1nWH62ZowJAVK2x4lWDbhE7kv5je%2Ffex0zICV1Gb14NKOHjeT%2BXv8lIcWydjyqfetw77iTuMfKhrR0DkZeJOY%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20251105T142944Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Credential=ASIAXJ4Z5EHB7B4TWVXC%2F20251105%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=de351f2adf3ed3431d43076f9c200751057dfd34168a63db427ea4c126ec00bb"
+    },
+    "Tags": {
+        "LastReviewed": "2025-10-27",
+        "Project": "AtlasEngine",
+        "Owner": "AtlasEngineDemo",
+        "Environment": "demo"
+    }
+}

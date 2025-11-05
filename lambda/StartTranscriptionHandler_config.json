@@ -1,0 +1,50 @@
+{
+    "Configuration": {
+        "FunctionName": "StartTranscriptionHandler",
+        "FunctionArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:StartTranscriptionHandler",
+        "Runtime": "python3.13",
+        "Role": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/StartTranscriptionHandler-role-k0h94r1f",
+        "Handler": "lambda_function.lambda_handler",
+        "CodeSize": 1735,
+        "Description": "",
+        "Timeout": 30,
+        "MemorySize": 256,
+        "LastModified": "2025-11-04T09:37:06.000+0000",
+        "CodeSha256": "7lB7f7fT7S07C7CzQVZt5Y1abSJ4xP+MwQpG6TNFcWo=",
+        "Version": "$LATEST",
+        "TracingConfig": {
+            "Mode": "PassThrough"
+        },
+        "RevisionId": "50904936-dbf0-4c94-8a75-b8042aed6272",
+        "State": "Active",
+        "LastUpdateStatus": "Successful",
+        "PackageType": "Zip",
+        "Architectures": [
+            "x86_64"
+        ],
+        "EphemeralStorage": {
+            "Size": 512
+        },
+        "SnapStart": {
+            "ApplyOn": "None",
+            "OptimizationStatus": "Off"
+        },
+        "RuntimeVersionConfig": {
+            "RuntimeVersionArn": "arn:aws:lambda:us-west-2::runtime:fe7a78198cc1037d599c8e576c9b94c4d6b88f8067b86f7d3481b75d9fd76c24"
+        },
+        "LoggingConfig": {
+            "LogFormat": "Text",
+            "LogGroup": "/aws/lambda/StartTranscriptionHandler"
+        }
+    },
+    "Code": {
+        "RepositoryType": "S3",
+        "Location": "https://awslambda-us-west-2-tasks.s3.us-west-2.amazonaws.com/snapshots/<AWS_ACCOUNT_ID>/StartTranscriptionHandler-17f0b6f8-e01a-4b89-906e-c8b4be7e3e2b?versionId=hRNQ1I5Gn6s8o_954itlFzM2jFyUFkUo&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJHMEUCIHy4CT%2FhSI9p8Wo6GPuE3HGe7cMtkNp560cBE2CcoTr7AiEAj3J6FBPPRyDGzHiCmgV1rZxBbRute1xld66wjHVGuR0qlAIIjP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAFGgw1MDIyOTcwNzYxNjMiDMnl3NpGWCsDypnbnSroAabc4ZWP08tnQi%2FkhZonfJHiN4z98Z%2B%2FE6zJ7xOk0cAZ0Jfnmti1YhPmeMia2d9%2Bmwjb2zwu4hk0bj6vT7W0G3UbRFrOLLro%2Bg8WnATHzuEcyrvrZCMKRzoO8bosUoyUSJ9xaZ6a9uuxJK%2Fx7dxLxfDtKG7ZmbVIgwuXFzM4bVlmEMJnZmIMh2w8YfBbPnM5NCtTkbTjL2VhVSo9bBjJ9L1qr9nQBRhRxsRj6HkMgc%2BvzYX%2FmdjkteubUV1P%2Fp8sMW9y%2FmC%2BLOoF89LpxHPQc7dieBzbVcIlNkwcQlWm53j4LFXlgC3pGoww996syAY6jQHhpga8V1zadSrta6IPApp7ENEZig5P1J85sAwOONXyyHCUt5coDD50l%2BwbIuV1r03bC1Y59r%2FvTlQux18cQu74aJINGiZon34ZwIhHnxCUduXDjqxjWSbGNl%2BFiCxR5%2FZwtHiIlFLiFtuy4oRPrZOLSJRHcIevXKu%2B%2FYrXf10koH%2FrDsAoflP7yia6n6M%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20251105T142952Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Credential=ASIAXJ4Z5EHBZI2NIM6A%2F20251105%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=6d89a9e935e49ae48dabeecb99fe489aa36a914f08f1d204bd5c1083ed44e176"
+    },
+    "Tags": {
+        "LastReviewed": "2025-10-27",
+        "Project": "AtlasEngine",
+        "Owner": "AtlasEngineDemo",
+        "Environment": "demo"
+    }
+}

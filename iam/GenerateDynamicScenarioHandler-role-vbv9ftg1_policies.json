@@ -1,0 +1,20 @@
+{
+    "AttachedPolicies": [
+        {
+            "PolicyName": "AtlasEngineCorePolicy",
+            "PolicyArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:policy/AtlasEngineCorePolicy"
+        },
+        {
+            "PolicyName": "ScopedBedrockInvokePolicy",
+            "PolicyArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:policy/ScopedBedrockInvokePolicy"
+        },
+        {
+            "PolicyName": "AtlasEngineLoggingPolicy",
+            "PolicyArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:policy/AtlasEngineLoggingPolicy"
+        },
+        {
+            "PolicyName": "AtlasEngineSecretsPolicy",
+            "PolicyArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:policy/AtlasEngineSecretsPolicy"
+        }
+    ]
+}

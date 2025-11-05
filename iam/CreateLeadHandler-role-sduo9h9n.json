@@ -1,0 +1,26 @@
+{
+    "Role": {
+        "Path": "/service-role/",
+        "RoleName": "CreateLeadHandler-role-sduo9h9n",
+        "RoleId": "AROA6GBMBMFFEFWBIBBEF",
+        "Arn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/CreateLeadHandler-role-sduo9h9n",
+        "CreateDate": "2025-09-23T07:51:32+00:00",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "MaxSessionDuration": 3600,
+        "RoleLastUsed": {
+            "LastUsedDate": "2025-11-05T14:00:29+00:00",
+            "Region": "us-west-2"
+        }
+    }
+}

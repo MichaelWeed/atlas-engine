@@ -1,0 +1,50 @@
+# Sensitive data
+*_data.json
+*.pem
+*.key
+*.env
+.env
+salesforce-creds.json
+parameters.json
+
+# AWS credentials
+.aws/
+credentials
+
+# SAM build artifacts
+.aws-sam/
+packaged-template.yaml
+samconfig.toml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Lambda layers
+layers/*/python/
+layers/*/*.zip
+
+# Temporary files
+*.tmp
+*.log
+*.swp
+*.swo
+*~
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Test outputs
+test-results/
+coverage/

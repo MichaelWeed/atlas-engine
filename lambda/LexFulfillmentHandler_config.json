@@ -1,0 +1,70 @@
+{
+    "Configuration": {
+        "FunctionName": "LexFulfillmentHandler",
+        "FunctionArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:LexFulfillmentHandler",
+        "Runtime": "python3.13",
+        "Role": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/LexFulfillmentHandler-role-gf8r6bq2",
+        "Handler": "lambda_function.lambda_handler",
+        "CodeSize": 7777,
+        "Description": "",
+        "Timeout": 300,
+        "MemorySize": 1500,
+        "LastModified": "2025-11-05T14:00:31.000+0000",
+        "CodeSha256": "MFR6J1jkkBX/FAA05pAmu02tAriJOIrtQqL32M459OE=",
+        "Version": "$LATEST",
+        "Environment": {
+            "Variables": {
+                "ANTHROPIC_MODEL_ID": "anthropic.claude-3-5-sonnet-20240620-v1:0",
+                "SF_USE_PASSWORD": "true",
+                "SALES_TEAM_TOPIC_ARN": "arn:aws:sns:us-west-2:<AWS_ACCOUNT_ID>:SmsQuickStartSnsDestination-d9558817",
+                "STATE_MACHINE_ARN": "arn:aws:states:us-west-2:<AWS_ACCOUNT_ID>:stateMachine:AtlasEngineWorkflow",
+                "INTERACTIONS_DYNAMODB_TABLE": "AtlasEngineInteractions",
+                "SALESFORCE_SECRET_ARN": "arn:aws:secretsmanager:us-west-2:<AWS_ACCOUNT_ID>:secret:AtlasEngine/SalesforceCreds-4xWYp9"
+            }
+        },
+        "TracingConfig": {
+            "Mode": "PassThrough"
+        },
+        "RevisionId": "cde2ac14-31c3-45c9-9611-a5dd0d5957b6",
+        "Layers": [
+            {
+                "Arn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:PythonLibraries-Minimal-v6:1",
+                "CodeSize": 2995132
+            },
+            {
+                "Arn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:SimpleSalesforceLibrary:5",
+                "CodeSize": 13916010
+            }
+        ],
+        "State": "Active",
+        "LastUpdateStatus": "Successful",
+        "PackageType": "Zip",
+        "Architectures": [
+            "x86_64"
+        ],
+        "EphemeralStorage": {
+            "Size": 512
+        },
+        "SnapStart": {
+            "ApplyOn": "None",
+            "OptimizationStatus": "Off"
+        },
+        "RuntimeVersionConfig": {
+            "RuntimeVersionArn": "arn:aws:lambda:us-west-2::runtime:fe7a78198cc1037d599c8e576c9b94c4d6b88f8067b86f7d3481b75d9fd76c24"
+        },
+        "LoggingConfig": {
+            "LogFormat": "Text",
+            "LogGroup": "/aws/lambda/LexFulfillmentHandler"
+        }
+    },
+    "Code": {
+        "RepositoryType": "S3",
+        "Location": "https://awslambda-us-west-2-tasks.s3.us-west-2.amazonaws.com/snapshots/<AWS_ACCOUNT_ID>/LexFulfillmentHandler-cf5acb16-cac1-4369-8bdb-874477405b14?versionId=HFMhQNN6A8db.FxLm0cMus.MwIpDbhcM&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJHMEUCIQCm1442c0hKwSGpoE2bvg%2BE4IXHyAjMjXxE2mzHEhXWvgIgLZBcGbJFSwmxQsW%2FdBRZVaT3%2BP6d7kuaIa2nPmCmtmIqlAIIjv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAFGgw1MDIyOTcwNzYxNjMiDH6lEBVhlO5bQpw8diroAe%2FntRAmCBmF5cjsDyjzvzha5oQAbnzEMv6TLiV89kvQnNnK9f%2Fo6gsgL86L%2BFIeKHI%2B7rc6KveqdI0DQncEjN%2F2p9oMgr7YtKfQQSQvnnbS2qR3pdoPj%2BYvorAH5x%2BNRRybJq4If584bfatP4phQEA6uwJIxcyN%2B7RqlD2l7RGcYdI%2FyyQs6fRz%2BWJxYaI0Bdp3pI55s60STStG6lKD3Aw8pl5DnNX95AM6FkhptQEQDhEQNgvdeayT2LuQLW0ZYwOFo2lMWvzVaEiepwDDnlA8FLy4M9rRgM9q43mDw%2BYlRnsrfJHlbBUwqpmtyAY6jQGHJ0%2FGMXgRl%2Fq77vt%2FuIhvS%2BzvAsUlzbLiaQ1DAZE46CJcaZEqKeje1uowe2V%2FKDX9qs%2Blo9v%2FGlp14YZ%2B19auCYUO%2BNlnAlp%2FGpxvKjncSFn4xs%2BdXf8FIXI%2BLPuVh8gF%2FmsqYRwZfZRfN%2Fi5KWHdTjWoUkmyY1adYLgnOfzfilq%2FQDDPh6H%2BERVfT0A%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20251105T142950Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Credential=ASIAXJ4Z5EHBRWABS6LX%2F20251105%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=db66854ae60ab6eb00d4b89fd901a81f86304aa454e0876e8bdbce0164ea838b"
+    },
+    "Tags": {
+        "LastReviewed": "2025-10-27",
+        "Project": "AtlasEngine",
+        "Owner": "AtlasEngineDemo",
+        "Environment": "demo"
+    }
+}

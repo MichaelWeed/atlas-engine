@@ -1,0 +1,14 @@
+{
+    "logGroups": [
+        {
+            "logGroupName": "/aws/lambda/StartTranscriptionHandler",
+            "creationTime": 1759905482547,
+            "retentionInDays": 3,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/lambda/StartTranscriptionHandler:*",
+            "storedBytes": 1085014,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/lambda/StartTranscriptionHandler"
+        }
+    ]
+}

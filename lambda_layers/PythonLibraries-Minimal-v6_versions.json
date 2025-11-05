@@ -1,0 +1,13 @@
+{
+    "LayerVersions": [
+        {
+            "LayerVersionArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:PythonLibraries-Minimal-v6:1",
+            "Version": 1,
+            "Description": "Minimal Python 3.13 libraries: requests, phonenumbers, wrapt",
+            "CreatedDate": "2025-11-05T01:35:53.161+0000",
+            "CompatibleRuntimes": [
+                "python3.13"
+            ]
+        }
+    ]
+}

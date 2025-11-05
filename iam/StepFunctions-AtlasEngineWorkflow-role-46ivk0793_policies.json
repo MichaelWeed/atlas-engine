@@ -1,0 +1,28 @@
+{
+    "AttachedPolicies": [
+        {
+            "PolicyName": "AtlasEngineCorePolicy",
+            "PolicyArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:policy/AtlasEngineCorePolicy"
+        },
+        {
+            "PolicyName": "LambdaStepFunctionsExecute",
+            "PolicyArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:policy/LambdaStepFunctionsExecute"
+        },
+        {
+            "PolicyName": "XRayAccessPolicy-d7593a1a-ef56-4b0b-95b2-ecb10aec5ddc",
+            "PolicyArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:policy/service-role/XRayAccessPolicy-d7593a1a-ef56-4b0b-95b2-ecb10aec5ddc"
+        },
+        {
+            "PolicyName": "AtlasEngineLoggingPolicy",
+            "PolicyArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:policy/AtlasEngineLoggingPolicy"
+        },
+        {
+            "PolicyName": "AtlasEngineSecretsPolicy",
+            "PolicyArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:policy/AtlasEngineSecretsPolicy"
+        },
+        {
+            "PolicyName": "LambdaInvokeScopedAccessPolicy-1dfd1f13-ee07-4646-98fe-d68a816859c1",
+            "PolicyArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:policy/service-role/LambdaInvokeScopedAccessPolicy-1dfd1f13-ee07-4646-98fe-d68a816859c1"
+        }
+    ]
+}

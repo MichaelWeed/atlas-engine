@@ -1,0 +1,26 @@
+{
+    "Role": {
+        "Path": "/service-role/",
+        "RoleName": "StartTranscriptionHandler-role-k0h94r1f",
+        "RoleId": "AROA6GBMBMFFF2I4UMRIE",
+        "Arn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/StartTranscriptionHandler-role-k0h94r1f",
+        "CreateDate": "2025-10-07T13:08:16+00:00",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "MaxSessionDuration": 3600,
+        "RoleLastUsed": {
+            "LastUsedDate": "2025-10-29T11:39:59+00:00",
+            "Region": "us-west-2"
+        }
+    }
+}

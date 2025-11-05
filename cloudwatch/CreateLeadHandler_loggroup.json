@@ -1,0 +1,14 @@
+{
+    "logGroups": [
+        {
+            "logGroupName": "/aws/lambda/CreateLeadHandler",
+            "creationTime": 1758807261738,
+            "retentionInDays": 7,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/lambda/CreateLeadHandler:*",
+            "storedBytes": 168081,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/lambda/CreateLeadHandler"
+        }
+    ]
+}

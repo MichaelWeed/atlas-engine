@@ -1,0 +1,83 @@
+{
+    "Table": {
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "ContactId",
+                "AttributeType": "S"
+            },
+            {
+                "AttributeName": "PK",
+                "AttributeType": "S"
+            },
+            {
+                "AttributeName": "SK",
+                "AttributeType": "S"
+            }
+        ],
+        "TableName": "AtlasEngineInteractions",
+        "KeySchema": [
+            {
+                "AttributeName": "PK",
+                "KeyType": "HASH"
+            },
+            {
+                "AttributeName": "SK",
+                "KeyType": "RANGE"
+            }
+        ],
+        "TableStatus": "ACTIVE",
+        "CreationDateTime": "2025-10-20T05:27:20.830000-07:00",
+        "ProvisionedThroughput": {
+            "NumberOfDecreasesToday": 0,
+            "ReadCapacityUnits": 0,
+            "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 133255,
+        "ItemCount": 124,
+        "TableArn": "arn:aws:dynamodb:us-west-2:<AWS_ACCOUNT_ID>:table/AtlasEngineInteractions",
+        "TableId": "01dc657b-0933-4406-88fa-b33c00e056dd",
+        "BillingModeSummary": {
+            "BillingMode": "PAY_PER_REQUEST",
+            "LastUpdateToPayPerRequestDateTime": "2025-10-20T05:27:20.830000-07:00"
+        },
+        "GlobalSecondaryIndexes": [
+            {
+                "IndexName": "ContactId-index",
+                "KeySchema": [
+                    {
+                        "AttributeName": "ContactId",
+                        "KeyType": "HASH"
+                    }
+                ],
+                "Projection": {
+                    "ProjectionType": "INCLUDE",
+                    "NonKeyAttributes": [
+                        "PK",
+                        "SK",
+                        "StepFunctionTaskToken"
+                    ]
+                },
+                "IndexStatus": "ACTIVE",
+                "ProvisionedThroughput": {
+                    "NumberOfDecreasesToday": 0,
+                    "ReadCapacityUnits": 0,
+                    "WriteCapacityUnits": 0
+                },
+                "IndexSizeBytes": 26930,
+                "ItemCount": 121,
+                "IndexArn": "arn:aws:dynamodb:us-west-2:<AWS_ACCOUNT_ID>:table/AtlasEngineInteractions/index/ContactId-index",
+                "WarmThroughput": {
+                    "ReadUnitsPerSecond": 12000,
+                    "WriteUnitsPerSecond": 4000,
+                    "Status": "ACTIVE"
+                }
+            }
+        ],
+        "DeletionProtectionEnabled": false,
+        "WarmThroughput": {
+            "ReadUnitsPerSecond": 12000,
+            "WriteUnitsPerSecond": 4000,
+            "Status": "ACTIVE"
+        }
+    }
+}

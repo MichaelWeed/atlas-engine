@@ -1,0 +1,98 @@
+{
+  "Comment": "AtlasEngineWorkflow - Four-phase customer engagement process",
+  "StartAt": "Create Salesforce Lead",
+  "States": {
+    "Create Salesforce Lead": {
+      "Type": "Task",
+      "Resource": "${CreateLeadHandlerArn}",
+      "ResultPath": "$.salesforce",
+      "Retry": [
+        {
+          "ErrorEquals": ["Lambda.ServiceException", "Lambda.TooManyRequestsException"],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "Workflow Failed"
+        }
+      ],
+      "Next": "Generate Dynamic Scenario"
+    },
+    "Generate Dynamic Scenario": {
+      "Type": "Task",
+      "Resource": "${GenerateDynamicScenarioHandlerArn}",
+      "ResultPath": "$.llm",
+      "Retry": [
+        {
+          "ErrorEquals": ["Lambda.ServiceException"],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 2
+        }
+      ],
+      "Next": "Invoke Outbound Voice Contact"
+    },
+    "Invoke Outbound Voice Contact": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke.waitForTaskToken",
+      "TimeoutSeconds": 1800,
+      "Parameters": {
+        "FunctionName": "${InvokeOutboundCallHandlerArn}",
+        "Payload": {
+          "Input.$": "$",
+          "TaskToken.$": "$$.Task.Token"
+        }
+      },
+      "ResultPath": "$.outboundCall",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.Timeout"],
+          "ResultPath": "$.error",
+          "Next": "Handle Call Timeout"
+        }
+      ],
+      "Next": "Update Lead with Summary"
+    },
+    "Handle Call Timeout": {
+      "Type": "Pass",
+      "Result": {
+        "summary": "Call timed out - no response from customer"
+      },
+      "ResultPath": "$.outboundCall",
+      "Next": "Update Lead with Summary"
+    },
+    "Update Lead with Summary": {
+      "Type": "Task",
+      "Resource": "${UpdateLeadHandlerArn}",
+      "Parameters": {
+        "leadId.$": "$.salesforce.leadId",
+        "summary.$": "$.outboundCall.summary"
+      },
+      "ResultPath": "$.summaryResult",
+      "Retry": [
+        {
+          "ErrorEquals": ["Lambda.ServiceException", "SalesforceAuthenticationFailed"],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 2,
+          "BackoffRate": 2
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "Workflow Failed"
+        }
+      ],
+      "End": true,
+      "TimeoutSeconds": 60
+    },
+    "Workflow Failed": {
+      "Type": "Fail",
+      "Error": "WorkflowExecutionFailed",
+      "Cause": "The workflow failed during execution"
+    }
+  }
+}

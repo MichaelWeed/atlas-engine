@@ -1,0 +1,71 @@
+{
+    "PolicyVersion": {
+        "Document": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "S3Access",
+                    "Effect": "Allow",
+                    "Action": "s3:GetObject",
+                    "Resource": [
+                        "arn:aws:s3:::intrepid-services-cc/*",
+                        "arn:aws:s3:::atlas-engine-transcripts/*"
+                    ]
+                },
+                {
+                    "Sid": "TranscribeAccess",
+                    "Effect": "Allow",
+                    "Action": [
+                        "transcribe:StartTranscriptionJob",
+                        "transcribe:GetTranscriptionJob"
+                    ],
+                    "Resource": "*"
+                },
+                {
+                    "Sid": "LexFulfillmentStepFunctionsAccess",
+                    "Effect": "Allow",
+                    "Action": "states:StartExecution",
+                    "Resource": "arn:aws:states:us-west-2:<AWS_ACCOUNT_ID>:stateMachine:AtlasEngineWorkflow"
+                },
+                {
+                    "Sid": "InvokeOutboundCallConnectAccess",
+                    "Effect": "Allow",
+                    "Action": "connect:StartOutboundVoiceContact",
+                    "Resource": [
+                        "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>",
+                        "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/*"
+                    ]
+                },
+                {
+                    "Sid": "InvokeOutboundCallStepFunctionsAccess",
+                    "Effect": "Allow",
+                    "Action": [
+                        "states:SendTaskSuccess",
+                        "states:SendTaskFailure"
+                    ],
+                    "Resource": "arn:aws:states:us-west-2:<AWS_ACCOUNT_ID>:stateMachine:AtlasEngineWorkflow"
+                },
+                {
+                    "Sid": "DynamoDB",
+                    "Effect": "Allow",
+                    "Action": [
+                        "dynamodb:PutItem",
+                        "dynamodb:GetItem",
+                        "dynamodb:UpdateItem",
+                        "dynamodb:Query",
+                        "dynamodb:Scan"
+                    ],
+                    "Resource": [
+                        "arn:aws:dynamodb:us-west-2:<AWS_ACCOUNT_ID>:table/AtlasEngineTaskTokens",
+                        "arn:aws:dynamodb:us-west-2:<AWS_ACCOUNT_ID>:table/AtlasEngineTaskTokens/index/*",
+                        "arn:aws:dynamodb:us-west-2:<AWS_ACCOUNT_ID>:table/AtlasEngineInteractions",
+                        "arn:aws:dynamodb:us-west-2:<AWS_ACCOUNT_ID>:table/AtlasEngineInteractions/index/*"
+                    ]
+                }
+            ]
+        },
+        "VersionId": "v7",
+        "IsDefaultVersion": true,
+        "CreateDate": "2025-10-29T10:20:50+00:00"
+    }
+}

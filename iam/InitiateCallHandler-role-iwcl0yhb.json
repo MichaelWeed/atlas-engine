@@ -1,0 +1,26 @@
+{
+    "Role": {
+        "Path": "/service-role/",
+        "RoleName": "InitiateCallHandler-role-iwcl0yhb",
+        "RoleId": "AROA6GBMBMFFMAM5GABZA",
+        "Arn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/InitiateCallHandler-role-iwcl0yhb",
+        "CreateDate": "2025-09-25T12:05:39+00:00",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "MaxSessionDuration": 3600,
+        "RoleLastUsed": {
+            "LastUsedDate": "2025-10-11T02:30:00+00:00",
+            "Region": "us-west-2"
+        }
+    }
+}

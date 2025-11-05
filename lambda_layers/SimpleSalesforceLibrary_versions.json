@@ -1,0 +1,14 @@
+{
+    "LayerVersions": [
+        {
+            "LayerVersionArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:SimpleSalesforceLibrary:5",
+            "Version": 5,
+            "CreatedDate": "2025-10-11T06:14:35.996+0000",
+            "CompatibleRuntimes": [
+                "python3.13"
+            ],
+            "CompatibleArchitectures": []
+        }
+    ],
+    "NextToken": "eyJNYXJrZXIiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAxfQ=="
+}

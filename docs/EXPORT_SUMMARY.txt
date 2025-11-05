@@ -1,0 +1,31 @@
+AWS Atlas Engine Resource Export Summary
+=========================================
+
+Export completed successfully!
+
+Total files exported: 87
+
+Breakdown by service:
+- Lambda Functions: 24 files (8 functions × 3 files each)
+- IAM Roles: 24 files (8 roles × 3 files each)
+- CloudFormation: 4 files (2 stacks)
+- CloudFront: 4 files (2 distributions)
+- DynamoDB: 4 files (2 tables)
+- S3 Buckets: 12 files (3 buckets)
+- CloudWatch: 8 files (8 log groups)
+- Step Functions: 1 file
+- Lex Bot: 2 files
+- Connect: 2 files
+- Secrets Manager: 1 file
+- SNS: 1 file
+- Transcribe: 1 file
+
+Location: /Users/johndoe/Downloads/aws_org_export
+
+Next Steps:
+1. Review the exported configurations
+2. Upload this folder to an LLM for system flow analysis
+3. Use for documentation, migration planning, or architecture review
+
+All sensitive data (secrets, credentials) are excluded.
+Only configuration metadata has been exported.

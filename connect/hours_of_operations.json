@@ -1,0 +1,11 @@
+{
+    "HoursOfOperationSummaryList": [
+        {
+            "Id": "0bb2e9b3-0112-4bf8-896e-8c509f29f3ec",
+            "Arn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>/operating-hours/0bb2e9b3-0112-4bf8-896e-8c509f29f3ec",
+            "Name": "Basic Hours",
+            "LastModifiedTime": "2024-07-15T02:14:48.696000-07:00",
+            "LastModifiedRegion": "us-west-2"
+        }
+    ]
+}

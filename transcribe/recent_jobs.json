@@ -1,0 +1,95 @@
+{
+    "NextToken": "3/MzmrZXyM9Rr+Z3xCAbWNu1Zom58TDNMY0z6Jy6vLnjUudapbNbAmkyph76T0YNT68dMqmTsdtuJFipugfdyaoSj069QrpthOlbvf2NmUVcuRpAaCCcJerj++DB1e43vxrm0VU+BpWoXI1LVchzYzzjh/QpGiQEsjjYDkerEi1Hi8oAHxcnbpihD/yI1ts/h7RP9jXpKdxoC8X8InPVyAOC/B/pwlYUu1sZmBMygX5LUuRYZXr9FHJVoGU0PQhltSxANi2Ldu7x4VGgY5BYC7oN0OA20iX1MEgKnBXSyFmXaBHu8P5xKzdGhNsDs0R8UO9Wutj8Q84cmlqrQBQ4cpek96jTLaSRB/7V8+sWtT080bhBhrn0Nwr+M2NXF5DfNjfPqSGbCL8hMMHnhQQf5GVT1ZRWLIIeww1smr/cH1s37c49wdBDjutRmi9E8Y8w8pAdT8iG5F1FZF75EAGZflHd8A12EwwDYng3FD5Pm70VdBzlg2XXt0Qiutp3Uyzr0nyRyEYAA3L8/TOARrVVGvM4OLLghqEwX3JTmhvPYawar15nSUjWuN3TUylHgPWzDauxCUbLrisQXWMesTCci9D4wR8FzAkeaseU7AYGOGHTjJ55pz03mMR+jHSdAcyTkEU0520VNw9kYGP21NfGTiGBnx6U3k+1d4dZOABROMODs4vLyQYCNc5R/1tE1uW/h5uCQtE6bMzwm60IYztvMj07cFBsopYhbTrJX1v7h/fygPaVUhqf699SzeAFgCXlVMs/OzXzv79LsJTn6KL/SQrWE/KgbbtGft1BuFem/itgg7zt9MwjiSdhs8rMSsx2uQzJUv68d9LemJO7f4ZTKqKbIXWJ3v1+LyZ9TGqp/VbJkGZ63sxuIdwsa7+yoj5sL6wL5/X3j+HHaczBL2IPwx9g==",
+    "TranscriptionJobSummaries": [
+        {
+            "TranscriptionJobName": "5a57e951-c622-40be-9360-7b04f9d96532",
+            "CreationTime": "2025-10-27T10:48:40.025000-07:00",
+            "StartTime": "2025-10-27T10:48:40.042000-07:00",
+            "LanguageCode": "en-US",
+            "TranscriptionJobStatus": "FAILED",
+            "FailureReason": "The input media file length is too small. Minimum audio duration is 0.500000 seconds. Check the length of the file and try your request again.",
+            "OutputLocationType": "CUSTOMER_BUCKET"
+        },
+        {
+            "TranscriptionJobName": "6ee27edd-6d44-4ad9-a988-515cfd7e2545",
+            "CreationTime": "2025-10-22T05:07:23.155000-07:00",
+            "StartTime": "2025-10-22T05:07:23.182000-07:00",
+            "LanguageCode": "en-US",
+            "TranscriptionJobStatus": "FAILED",
+            "FailureReason": "The input media file length is too small. Minimum audio duration is 0.500000 seconds. Check the length of the file and try your request again.",
+            "OutputLocationType": "CUSTOMER_BUCKET"
+        },
+        {
+            "TranscriptionJobName": "b0987dc4-d97f-4186-95d4-be9540316e81",
+            "CreationTime": "2025-10-20T17:53:36.512000-07:00",
+            "StartTime": "2025-10-20T17:53:36.531000-07:00",
+            "LanguageCode": "en-US",
+            "TranscriptionJobStatus": "FAILED",
+            "FailureReason": "The input media file length is too small. Minimum audio duration is 0.500000 seconds. Check the length of the file and try your request again.",
+            "OutputLocationType": "CUSTOMER_BUCKET"
+        },
+        {
+            "TranscriptionJobName": "c65aa720-0127-457d-9e49-e703d9ee7052",
+            "CreationTime": "2025-10-20T17:51:21.769000-07:00",
+            "StartTime": "2025-10-20T17:51:21.787000-07:00",
+            "LanguageCode": "en-US",
+            "TranscriptionJobStatus": "FAILED",
+            "FailureReason": "The input media file length is too small. Minimum audio duration is 0.500000 seconds. Check the length of the file and try your request again.",
+            "OutputLocationType": "CUSTOMER_BUCKET"
+        },
+        {
+            "TranscriptionJobName": "4377fd75-9471-4d5b-8aa2-2a2aa7dadf5e",
+            "CreationTime": "2025-10-20T17:45:37.290000-07:00",
+            "StartTime": "2025-10-20T17:45:37.312000-07:00",
+            "LanguageCode": "en-US",
+            "TranscriptionJobStatus": "FAILED",
+            "FailureReason": "The input media file length is too small. Minimum audio duration is 0.500000 seconds. Check the length of the file and try your request again.",
+            "OutputLocationType": "CUSTOMER_BUCKET"
+        },
+        {
+            "TranscriptionJobName": "84b383c4-fe37-4769-b9b8-7c7f8a63a2e6",
+            "CreationTime": "2025-10-20T17:38:35.037000-07:00",
+            "StartTime": "2025-10-20T17:38:35.057000-07:00",
+            "LanguageCode": "en-US",
+            "TranscriptionJobStatus": "FAILED",
+            "FailureReason": "The input media file length is too small. Minimum audio duration is 0.500000 seconds. Check the length of the file and try your request again.",
+            "OutputLocationType": "CUSTOMER_BUCKET"
+        },
+        {
+            "TranscriptionJobName": "e4c47dce-4a06-4cbd-bbd5-65d7f45449d9",
+            "CreationTime": "2025-10-20T17:34:40.198000-07:00",
+            "StartTime": "2025-10-20T17:34:40.216000-07:00",
+            "LanguageCode": "en-US",
+            "TranscriptionJobStatus": "FAILED",
+            "FailureReason": "The input media file length is too small. Minimum audio duration is 0.500000 seconds. Check the length of the file and try your request again.",
+            "OutputLocationType": "CUSTOMER_BUCKET"
+        },
+        {
+            "TranscriptionJobName": "aeb894af-2278-40bf-b148-6b12fe328192",
+            "CreationTime": "2025-10-20T17:31:50.640000-07:00",
+            "StartTime": "2025-10-20T17:31:50.660000-07:00",
+            "LanguageCode": "en-US",
+            "TranscriptionJobStatus": "FAILED",
+            "FailureReason": "The input media file length is too small. Minimum audio duration is 0.500000 seconds. Check the length of the file and try your request again.",
+            "OutputLocationType": "CUSTOMER_BUCKET"
+        },
+        {
+            "TranscriptionJobName": "4c6f7366-a0dd-4726-9cde-05250dda425e",
+            "CreationTime": "2025-10-13T01:24:44.210000-07:00",
+            "StartTime": "2025-10-13T01:24:44.234000-07:00",
+            "LanguageCode": "en-US",
+            "TranscriptionJobStatus": "FAILED",
+            "FailureReason": "The input media file length is too small. Minimum audio duration is 0.500000 seconds. Check the length of the file and try your request again.",
+            "OutputLocationType": "CUSTOMER_BUCKET"
+        },
+        {
+            "TranscriptionJobName": "a077e71f-b890-4aec-b471-0afa46dfb956",
+            "CreationTime": "2025-10-27T14:14:06.172000-07:00",
+            "StartTime": "2025-10-27T14:14:06.197000-07:00",
+            "CompletionTime": "2025-10-27T14:14:18.597000-07:00",
+            "LanguageCode": "en-US",
+            "TranscriptionJobStatus": "COMPLETED",
+            "OutputLocationType": "CUSTOMER_BUCKET"
+        }
+    ]
+}

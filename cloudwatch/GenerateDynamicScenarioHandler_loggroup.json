@@ -1,0 +1,13 @@
+{
+    "logGroups": [
+        {
+            "logGroupName": "/aws/lambda/GenerateDynamicScenarioHandler",
+            "creationTime": 1760164426936,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/lambda/GenerateDynamicScenarioHandler:*",
+            "storedBytes": 139571,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/lambda/GenerateDynamicScenarioHandler"
+        }
+    ]
+}

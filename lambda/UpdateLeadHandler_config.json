@@ -1,0 +1,61 @@
+{
+    "Configuration": {
+        "FunctionName": "UpdateLeadHandler",
+        "FunctionArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:UpdateLeadHandler",
+        "Runtime": "python3.13",
+        "Role": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/CreateLeadHandler-role-sduo9h9n",
+        "Handler": "lambda_function.lambda_handler",
+        "CodeSize": 1125,
+        "Description": "",
+        "Timeout": 30,
+        "MemorySize": 256,
+        "LastModified": "2025-11-04T09:38:32.000+0000",
+        "CodeSha256": "fcTvluGhwsCrjWx39TIcQxw+NrHggATFPQ6kUPNm5Ok=",
+        "Version": "$LATEST",
+        "Environment": {
+            "Variables": {
+                "SALESFORCE_SECRET_ARN": "arn:aws:secretsmanager:us-west-2:<AWS_ACCOUNT_ID>:secret:AtlasEngine/SalesforceCreds-4xWYp9"
+            }
+        },
+        "TracingConfig": {
+            "Mode": "PassThrough"
+        },
+        "RevisionId": "7980da50-d57e-4fb5-8450-f8f39eff4ce2",
+        "Layers": [
+            {
+                "Arn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:SimpleSalesforceLibrary:5",
+                "CodeSize": 13916010
+            }
+        ],
+        "State": "Active",
+        "LastUpdateStatus": "Successful",
+        "PackageType": "Zip",
+        "Architectures": [
+            "x86_64"
+        ],
+        "EphemeralStorage": {
+            "Size": 512
+        },
+        "SnapStart": {
+            "ApplyOn": "None",
+            "OptimizationStatus": "Off"
+        },
+        "RuntimeVersionConfig": {
+            "RuntimeVersionArn": "arn:aws:lambda:us-west-2::runtime:fe7a78198cc1037d599c8e576c9b94c4d6b88f8067b86f7d3481b75d9fd76c24"
+        },
+        "LoggingConfig": {
+            "LogFormat": "Text",
+            "LogGroup": "/aws/lambda/UpdateLeadHandler"
+        }
+    },
+    "Code": {
+        "RepositoryType": "S3",
+        "Location": "https://awslambda-us-west-2-tasks.s3.us-west-2.amazonaws.com/snapshots/<AWS_ACCOUNT_ID>/UpdateLeadHandler-9d706f3e-d3a1-4c2b-83d1-eb18ca450c13?versionId=CAqsNnSleLJoOVxVG87Qpljy8oadjf9C&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJHMEUCIFSzqBTrj0%2FZACVQmbUNfzfFIwkuve6%2FWta1SfSr96Q7AiEApC6YP%2BJguUiukEBB%2FcdSGdV8hCNpzl%2FDmSxUBRphlqkqlAIIjP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAFGgw1MDIyOTcwNzYxNjMiDNmoL83U6SoRGPeAbSroAXM0f0Dnv3OrIyGPqJQbsuqCQYY7af4LZ%2Fl26qpsp5eGiTreGN8qUhMdIeWXa2Ouynsspre3Rgr2AUw%2FQwR5nlR9INrR%2B75cSPhD1pyB4M%2BSlc3J9xkfCmwmdcw5%2BMdqNOrkfP%2FbVFJjLM%2Fn%2BgZa0%2BLwLQf5qRg1DrhTMagmsbeLWSKVRzFG2Mbh90j%2FNVZbHkfKzvHlPtebsegW9Mw8qAjOpdPcE5dHc7f7EKgGL3vrAXAIY6rWPTUp1p20Qj2MSNXuOnEMjwnO3xU48GFfEy7Aba4dPw6Rz7AVRJPfORnftDv6FRPE2CUw2tmsyAY6jQHwp0tXRsecOEsxYZ3x%2Br9nh0epvK9QkLga0va2J9KnAQfUZg61RklsK3bK9C78DMPOrZFsC10rfiJzJhEE%2BW6gt%2BNpW6QRvr0speSzAwXAviVAxLK4X1LOBqTd7Lr8MLdvbQ4UFlMPoSTAH%2B%2B%2BKf1fKJueEx3DxyXgRG%2FavHE4%2FczbHdw2E5b4V2V8PvY%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20251105T142955Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Credential=ASIAXJ4Z5EHBZXPCZ4GB%2F20251105%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=4fadc46a6e1f23917996b853a302318ae91ad9f368b40dcdac554e7df9b744f0"
+    },
+    "Tags": {
+        "LastReviewed": "2025-10-27",
+        "Project": "AtlasEngine",
+        "Owner": "AtlasEngineDemo",
+        "Environment": "demo"
+    }
+}

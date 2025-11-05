@@ -1,0 +1,26 @@
+{
+    "Role": {
+        "Path": "/service-role/",
+        "RoleName": "StepFunctions-AtlasEngineWorkflow-role-46ivk0793",
+        "RoleId": "AROA6GBMBMFFJWXTXWOT7",
+        "Arn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/StepFunctions-AtlasEngineWorkflow-role-46ivk0793",
+        "CreateDate": "2025-09-23T07:49:15+00:00",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "states.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "MaxSessionDuration": 3600,
+        "RoleLastUsed": {
+            "LastUsedDate": "2025-10-29T11:32:15+00:00",
+            "Region": "us-west-2"
+        }
+    }
+}

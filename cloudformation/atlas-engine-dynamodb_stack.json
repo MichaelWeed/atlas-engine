@@ -1,0 +1,41 @@
+{
+    "Stacks": [
+        {
+            "StackId": "arn:aws:cloudformation:us-west-2:<AWS_ACCOUNT_ID>:stack/atlas-engine-dynamodb/1d2a34c0-adb0-11f0-bcf0-0ae261ff4b37",
+            "StackName": "atlas-engine-dynamodb",
+            "Description": "CloudFormation template to create AtlasEngineInteractions DynamoDB table with Global Secondary Index",
+            "CreationTime": "2025-10-20T12:27:16.453000+00:00",
+            "RollbackConfiguration": {
+                "RollbackTriggers": []
+            },
+            "StackStatus": "CREATE_COMPLETE",
+            "DisableRollback": false,
+            "NotificationARNs": [],
+            "Outputs": [
+                {
+                    "OutputKey": "TableName",
+                    "OutputValue": "AtlasEngineInteractions",
+                    "Description": "Name of the DynamoDB table",
+                    "ExportName": "atlas-engine-dynamodb-TableName"
+                },
+                {
+                    "OutputKey": "TableArn",
+                    "OutputValue": "arn:aws:dynamodb:us-west-2:<AWS_ACCOUNT_ID>:table/AtlasEngineInteractions",
+                    "Description": "ARN of the DynamoDB table",
+                    "ExportName": "atlas-engine-dynamodb-TableArn"
+                },
+                {
+                    "OutputKey": "GlobalSecondaryIndexName",
+                    "OutputValue": "ContactId-index",
+                    "Description": "Name of the ContactId Global Secondary Index",
+                    "ExportName": "atlas-engine-dynamodb-GSI-ContactId"
+                }
+            ],
+            "Tags": [],
+            "EnableTerminationProtection": false,
+            "DriftInformation": {
+                "StackDriftStatus": "NOT_CHECKED"
+            }
+        }
+    ]
+}

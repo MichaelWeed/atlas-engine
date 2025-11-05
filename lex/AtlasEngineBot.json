@@ -1,0 +1,17 @@
+{
+    "botId": "M4GK3H6ODQ",
+    "botName": "AtlasEngineBot",
+    "description": "Production v1",
+    "roleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/aws-service-role/lexv2.amazonaws.com/AWSServiceRoleForLexV2Bots_XY63VQLYESC",
+    "dataPrivacy": {
+        "childDirected": false
+    },
+    "idleSessionTTLInSeconds": 720,
+    "botStatus": "Available",
+    "creationDateTime": "2025-09-22T01:03:37.559000-07:00",
+    "lastUpdatedDateTime": "2025-10-27T06:04:22.699000-07:00",
+    "botType": "Bot",
+    "errorLogSettings": {
+        "enabled": true
+    }
+}

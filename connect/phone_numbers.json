@@ -1,0 +1,25 @@
+{
+    "ListPhoneNumbersSummaryList": [
+        {
+            "PhoneNumberId": "302961cd-6094-4bea-82e6-872e6521f0e0",
+            "PhoneNumberArn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:phone-number/302961cd-6094-4bea-82e6-872e6521f0e0",
+            "PhoneNumber": "<TOLL_FREE_NUMBER>",
+            "PhoneNumberCountryCode": "US",
+            "PhoneNumberType": "TOLL_FREE",
+            "TargetArn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>",
+            "InstanceId": "<CONNECT_INSTANCE_ID>",
+            "PhoneNumberDescription": "",
+            "SourcePhoneNumberArn": "arn:aws:sms-voice:us-west-2:<AWS_ACCOUNT_ID>:phone-number/phone-3f5975ec5b314d8baff3d66ec0296851"
+        },
+        {
+            "PhoneNumberId": "90305089-a9d1-4c49-9552-52e2d87793f3",
+            "PhoneNumberArn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:phone-number/90305089-a9d1-4c49-9552-52e2d87793f3",
+            "PhoneNumber": "<SOURCE_PHONE_NUMBER>",
+            "PhoneNumberCountryCode": "US",
+            "PhoneNumberType": "TOLL_FREE",
+            "TargetArn": "arn:aws:connect:us-west-2:<AWS_ACCOUNT_ID>:instance/<CONNECT_INSTANCE_ID>",
+            "InstanceId": "<CONNECT_INSTANCE_ID>",
+            "PhoneNumberDescription": "Mainline"
+        }
+    ]
+}

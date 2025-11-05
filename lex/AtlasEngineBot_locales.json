@@ -1,0 +1,13 @@
+{
+    "botId": "M4GK3H6ODQ",
+    "botVersion": "DRAFT",
+    "botLocaleSummaries": [
+        {
+            "localeId": "en_US",
+            "localeName": "English (US)",
+            "botLocaleStatus": "Built",
+            "lastUpdatedDateTime": "2025-10-27T06:04:22.118000-07:00",
+            "lastBuildSubmittedDateTime": "2025-10-28T05:05:13.338000-07:00"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "stateMachineArn": "arn:aws:states:us-west-2:<AWS_ACCOUNT_ID>:stateMachine:AtlasEngineWorkflow",
+    "name": "AtlasEngineWorkflow",
+    "status": "ACTIVE",
+    "definition": "{\"Comment\":\"AtlasEngineWorkflow - Four-phase customer engagement process\",\"StartAt\":\"Create Salesforce Lead\",\"States\":{\"Create Salesforce Lead\":{\"Type\":\"Task\",\"Resource\":\"arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:CreateLeadHandler\",\"ResultPath\":\"$.salesforce\",\"Retry\":[{\"ErrorEquals\":[\"Lambda.ServiceException\",\"Lambda.TooManyRequestsException\"],\"IntervalSeconds\":2,\"MaxAttempts\":3,\"BackoffRate\":2}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"Next\":\"Workflow Failed\"}],\"Next\":\"Generate Dynamic Scenario\"},\"Generate Dynamic Scenario\":{\"Type\":\"Task\",\"Resource\":\"arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:GenerateDynamicScenarioHandler\",\"ResultPath\":\"$.llm\",\"Next\":\"Invoke Outbound Voice Contact\"},\"Invoke Outbound Voice Contact\":{\"Type\":\"Task\",\"Resource\":\"arn:aws:states:::lambda:invoke.waitForTaskToken\",\"TimeoutSeconds\":1800,\"Parameters\":{\"FunctionName\":\"arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:InvokeOutboundCallHandler\",\"Payload\":{\"Input.$\":\"$\",\"TaskToken.$\":\"$$.Task.Token\"}},\"ResultPath\":\"$.outboundCall\",\"Next\":\"Update Lead with Summary\"},\"Update Lead with Summary\":{\"Type\":\"Task\",\"Resource\":\"arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:UpdateLeadHandler\",\"Parameters\":{\"leadId.$\":\"$.salesforce.leadId\",\"summary.$\":\"$.outboundCall.summary\"},\"ResultPath\":\"$.summaryResult\",\"Retry\":[{\"ErrorEquals\":[\"Lambda.ServiceException\",\"Lambda.TooManyRequestsException\",\"SalesforceAuthenticationFailed\"],\"IntervalSeconds\":2,\"MaxAttempts\":2,\"BackoffRate\":2}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"Next\":\"Workflow Failed\"}],\"End\":true,\"TimeoutSeconds\":60},\"Workflow Failed\":{\"Type\":\"Fail\",\"Error\":\"WorkflowExecutionFailed\",\"Cause\":\"The workflow failed during execution\"}}}",
+    "roleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/service-role/StepFunctions-AtlasEngineWorkflow-role-46ivk0793",
+    "type": "STANDARD",
+    "creationDate": "2025-09-23T00:49:16.469000-07:00",
+    "loggingConfiguration": {
+        "level": "ALL",
+        "includeExecutionData": true,
+        "destinations": [
+            {
+                "cloudWatchLogsLogGroup": {
+                    "logGroupArn": "arn:aws:logs:us-west-2:<AWS_ACCOUNT_ID>:log-group:/aws/vendedlogs/states/AtlasEngineWorkflow-Logs:*"
+                }
+            }
+        ]
+    },
+    "tracingConfiguration": {
+        "enabled": true
+    },
+    "revisionId": "c3636312-feef-45b4-af7f-cb9c7495666a",
+    "encryptionConfiguration": {
+        "type": "AWS_OWNED_KEY"
+    }
+}

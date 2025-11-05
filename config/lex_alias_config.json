@@ -1,0 +1,11 @@
+{
+  "en_US": {
+    "enabled": true,
+    "codeHookSpecification": {
+      "lambdaCodeHook": {
+        "lambdaARN": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:LexFulfillmentHandler:prod",
+        "codeHookInterfaceVersion": "1.0"
+      }
+    }
+  }
+}

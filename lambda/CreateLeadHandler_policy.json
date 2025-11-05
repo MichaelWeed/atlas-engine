@@ -1,0 +1,4 @@
+{
+    "Policy": "{\"Version\":\"2012-10-17\",\"Id\":\"default\",\"Statement\":[{\"Sid\":\"lex-invoke\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lex.amazonaws.com\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:function:CreateLeadHandler\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:lex:us-west-2:<AWS_ACCOUNT_ID>:bot-alias/M4GK3H6ODQ/TSTALIASID\"}}}]}",
+    "RevisionId": "0b5012a0-7695-4459-ac0f-14ac76551d54"
+}

@@ -1,0 +1,16 @@
+{
+    "Content": {
+        "Location": "<LAYER_DOWNLOAD_URL>",
+        "CodeSha256": "2FRxhD2dUxVn5GvhoB2T9vvTba5wDPh2MEBmvhGabCA=",
+        "CodeSize": 1140592
+    },
+    "LayerArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:RequestsLibrary",
+    "LayerVersionArn": "arn:aws:lambda:us-west-2:<AWS_ACCOUNT_ID>:layer:RequestsLibrary:4",
+    "Description": "",
+    "CreatedDate": "2025-10-23T15:06:32.778+0000",
+    "Version": 4,
+    "CompatibleRuntimes": [
+        "python3.13"
+    ],
+    "CompatibleArchitectures": []
+}

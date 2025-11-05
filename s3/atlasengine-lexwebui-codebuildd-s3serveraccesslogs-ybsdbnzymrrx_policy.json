@@ -1,0 +1,3 @@
+{
+    "Policy": "{\"Version\":\"2008-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"logging.s3.amazonaws.com\"},\"Action\":\"s3:PutObject\",\"Resource\":\"arn:aws:s3:::atlasengine-lexwebui-codebuildd-s3serveraccesslogs-ybsdbnzymrrx/*\",\"Condition\":{\"StringEquals\":{\"aws:SourceAccount\":\"<AWS_ACCOUNT_ID>\"},\"ArnLike\":{\"aws:SourceArn\":\"arn:aws:s3:::atlasengine-lexwebui-codebuilddeploy--webappbucket-k2kfa9imz0kf\"}}}]}"
+}
