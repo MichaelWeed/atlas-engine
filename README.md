@@ -12,6 +12,25 @@ Deploy an AI-powered sales automation system to AWS in 30 minutes.
 
 *Note: This button uses the manually uploaded template. Lambda code must be deployed separately using `./deploy.sh`*
 
+# About Atlas Engine
+
+What if you could engage a new web lead not in hours, but in seconds?
+
+The Atlas Engine is a serverless, AI-powered B2B sales accelerator built on AWS. It's a high-impact, interactive demo that solves the "immediate contact" problem by turning a simple web chat into a real-time, AI-driven, outbound phone call. It's a "silent salesperson" that demonstrates a sophisticated, event-driven architecture in real-time.
+
+The Journey (Web Chat to Phone Call in < 60 Seconds) goes as follows:
+1. A user interacts with an Amazon Lex chatbot on the web.
+
+2. Their info triggers an AWS Step Functions workflow, which creates a lead in Salesforce.
+
+3. Amazon Bedrock (Claude 3.5 Sonnet) dynamically generates a contextual greeting based on the user's chat.
+
+4. Amazon Connect is triggered, placing an immediate outbound, AI-powered voice call to the user.
+
+5. The user talks to the AI-driven IVR, which can answer questions live (using Bedrock) or handle requests.
+
+6. After the call, Amazon Transcribe and Bedrock create a summary, and the Step Function resumes to post it to the Salesforce lead record.
+
 ### Prerequisites for One-Click Deploy
 
 Before clicking the deploy button, ensure you have:
